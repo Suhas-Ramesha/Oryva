@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
+import { PulseRadar } from "@/components/ui/pulse-radar";
 import { ForgeInteractive } from "@/components/sections/forge-interactive";
 
 export const metadata: Metadata = {
@@ -68,8 +68,8 @@ export default function ForgePage() {
             <Eyebrow>Current Cohort</Eyebrow>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="mt-8 flex flex-col items-start gap-4 rounded-2xl border border-dashed border-border-strong p-10 sm:flex-row sm:items-center">
-              <Sparkles className="h-8 w-8 shrink-0 text-accent-bright" strokeWidth={1.5} />
+            <div className="mt-8 flex flex-col items-start gap-6 rounded-2xl border border-dashed border-border-strong p-10 sm:flex-row sm:items-center">
+              <PulseRadar />
               <div>
                 <div className="flex items-center gap-3">
                   <h3 className="font-display text-lg font-medium tracking-tight">
@@ -122,8 +122,25 @@ export default function ForgePage() {
         <Container>
           <Reveal>
             <Eyebrow>Past Cohorts</Eyebrow>
-            <div className="mt-8 rounded-2xl border border-border-subtle p-10 text-center">
-              <p className="text-sm leading-relaxed text-muted">
+            <div className="mt-8 rounded-2xl border border-border-subtle p-10">
+              <div className="flex items-center justify-between">
+                {["01", "02", "03"].map((n, i) => (
+                  <div key={n} className="flex flex-1 items-center">
+                    <div className="flex flex-col items-center gap-2 text-center">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full border border-dashed border-border-strong font-mono text-xs text-muted-2">
+                        {n}
+                      </span>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-2">
+                        Cohort
+                      </span>
+                    </div>
+                    {i < 2 && (
+                      <div className="mx-3 h-px flex-1 border-t border-dashed border-border-strong" />
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="mt-8 text-center text-sm leading-relaxed text-muted">
                 Our first cohorts are just getting underway — highlights from past
                 workshops, hackathons, and fellowships will appear here once
                 available.

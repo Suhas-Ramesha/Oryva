@@ -5,6 +5,7 @@ import { BookOpen, Users, Zap, Rocket, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import { Magnetic } from "@/components/ui/magnetic";
 import { ForgeApplicationForm, type Track } from "@/components/forms/forge-application-form";
 
 const TRACKS: {
@@ -60,16 +61,14 @@ export function ForgeInteractive() {
                 {format}
               </p>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">{description}</p>
-              <Button
-                variant="secondary"
-                className="mt-6 w-fit"
-                onClick={() => handleApply(key)}
-              >
-                <span className="flex items-center gap-2">
-                  Apply — {key}
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </Button>
+              <Magnetic className="mt-6 inline-block w-fit" strength={0.25}>
+                <Button variant="secondary" onClick={() => handleApply(key)}>
+                  <span className="flex items-center gap-2">
+                    Apply — {key}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </Button>
+              </Magnetic>
             </Card>
           </Reveal>
         ))}
