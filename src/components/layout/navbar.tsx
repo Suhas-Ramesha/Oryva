@@ -4,9 +4,10 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/lib/mock-auth";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -19,6 +20,7 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const { user, logout } = useAuth();
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [lastPathname, setLastPathname] = React.useState(pathname);
@@ -73,13 +75,39 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
-          <Button asChild size="sm" variant="secondary">
-            <Link href="/forge" className="flex items-center gap-1.5">
-              Join ORYVA FORGE
-              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-          </Button>
+        <div className="hidden items-center gap-3 lg:flex">
+          {user ? (
+            <>
+              <Link
+                href="/account"
+                className="flex items-center gap-2 rounded-full border border-border-subtle py-1 pl-1 pr-3 text-sm font-medium text-foreground transition-colors hover:border-accent/50"
+              >
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-surface-2 font-display text-[11px] text-accent-bright">
+                  {user.name.charAt(0).toUpperCase()}
+                </span>
+                {user.name.split(" ")[0]}
+              </Link>
+              <button
+                aria-label="Log out"
+                onClick={logout}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border-subtle text-muted transition-colors hover:border-accent/50 hover:text-foreground"
+              >
+                <LogOut className="h-4 w-4" />
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="text-sm font-medium text-muted transition-colors hover:text-foreground">
+                Log In
+              </Link>
+              <Button asChild size="sm" variant="secondary">
+                <Link href="/register" className="flex items-center gap-1.5">
+                  Sign Up
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              </Button>
+            </>
+          )}
         </div>
 
         <button
@@ -115,9 +143,35 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="mt-3 w-full" size="md">
-                <Link href="/forge">Join ORYVA FORGE</Link>
-              </Button>
+              {user ? (
+                <div className="mt-3 flex items-center gap-3">
+                  <Link
+                    href="/account"
+                    className="flex flex-1 items-center gap-2 rounded-lg border border-border-subtle px-3 py-2.5 text-sm font-medium text-foreground"
+                  >
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-surface-2 font-display text-[11px] text-accent-bright">
+                      {user.name.charAt(0).toUpperCase()}
+                    </span>
+                    {user.name}
+                  </Link>
+                  <button
+                    aria-label="Log out"
+                    onClick={logout}
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border-subtle text-muted"
+                  >
+                    <LogOut className="h-4 w-4" />
+                  </button>
+                </div>
+              ) : (
+                <div className="mt-3 flex items-center gap-3">
+                  <Button asChild variant="secondary" className="flex-1" size="md">
+                    <Link href="/login">Log In</Link>
+                  </Button>
+                  <Button asChild className="flex-1" size="md">
+                    <Link href="/register">Sign Up</Link>
+                  </Button>
+                </div>
+              )}
             </nav>
           </motion.div>
         )}
