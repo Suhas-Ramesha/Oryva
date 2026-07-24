@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import { Geist, Geist_Mono, Space_Grotesk, Fraunces } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { MockAuthProvider } from "@/lib/mock-auth";
+import { LenisProvider } from "@/components/providers/lenis-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,26 +21,33 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["500", "600", "700"],
 });
 
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.oryva-ai.com"),
   title: {
-    default: "ORYVA-AI — Building at the Edge of AI",
+    default: "ORYVA-AI — Build what people can actually use",
     template: "%s — ORYVA-AI",
   },
   description:
-    "ORYVA-AI builds AI platforms and technical product systems end-to-end, and runs ORYVA FORGE — workshops, mentorship, hackathons, and fellowships for builders.",
+    "ORYVA-AI is where thoughtful technology, practical design, and human ambition meet. We build intelligent products — and ORYVA FORGE, a builder program — for the moments when people need more clarity and a better way forward.",
   openGraph: {
-    title: "ORYVA-AI — Building at the Edge of AI",
+    title: "ORYVA-AI — Build what people can actually use",
     description:
-      "AI platforms, technical product systems, and ORYVA FORGE — our program for builders.",
+      "Intelligent products for the moments when people need more clarity, more confidence, and a better way forward.",
     siteName: "ORYVA-AI",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ORYVA-AI — Building at the Edge of AI",
+    title: "ORYVA-AI — Build what people can actually use",
     description:
-      "AI platforms, technical product systems, and ORYVA FORGE — our program for builders.",
+      "Intelligent products for the moments when people need more clarity, more confidence, and a better way forward.",
   },
 };
 
@@ -52,14 +59,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
-        <MockAuthProvider>
+        <LenisProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
-        </MockAuthProvider>
+        </LenisProvider>
       </body>
     </html>
   );

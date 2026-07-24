@@ -11,22 +11,22 @@ export function ProductMockup() {
       <motion.div
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-0 rounded-3xl border border-border-subtle bg-surface"
+        className="absolute inset-0 rounded-3xl border border-hairline bg-paper-3"
       />
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-        className="absolute inset-5 rounded-2xl border border-border-subtle bg-surface-2/80 backdrop-blur-sm"
+        className="absolute inset-5 rounded-2xl border border-hairline bg-paper-2 shadow-[0_20px_50px_-30px_rgba(23,19,14,0.35)]"
       />
 
       <div className="absolute inset-5 flex flex-col rounded-2xl p-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-border-strong" />
-            <span className="h-2 w-2 rounded-full bg-border-strong" />
-            <span className="h-2 w-2 rounded-full bg-accent-bright" />
+            <span className="h-2 w-2 rounded-full bg-hairline-strong" />
+            <span className="h-2 w-2 rounded-full bg-hairline-strong" />
+            <span className="h-2 w-2 rounded-full bg-signal" />
           </div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-2">
+          <span className="font-[family-name:var(--font-label)] text-[10px] uppercase tracking-[0.18em] text-muted-2">
             Preview
           </span>
         </div>
@@ -36,17 +36,18 @@ export function ProductMockup() {
             <motion.div
               key={i}
               initial={{ height: 0 }}
-              animate={{ height: `${h}%` }}
-              transition={{ duration: 0.8, delay: 0.2 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full rounded-full bg-gradient-to-t from-accent/40 to-accent-bright/80"
+              whileInView={{ height: `${h}%` }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full rounded-full bg-gradient-to-t from-brand/30 to-brand"
             />
           ))}
         </div>
 
-        <div className="mt-8 flex items-center gap-2 border-t border-border-subtle pt-5">
-          <Sparkles className="h-4 w-4 text-accent-bright" strokeWidth={1.5} />
-          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-2">
-            Currently Building
+        <div className="mt-8 flex items-center gap-2 border-t border-hairline pt-5">
+          <Sparkles className="h-4 w-4 text-signal" strokeWidth={1.5} aria-hidden />
+          <span className="font-[family-name:var(--font-label)] text-[11px] uppercase tracking-[0.18em] text-muted-2">
+            In development
           </span>
         </div>
       </div>
