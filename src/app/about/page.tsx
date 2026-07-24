@@ -48,49 +48,48 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-28 pb-16 sm:pt-36 sm:pb-24">
+      <section className="pt-28 pb-16 sm:pt-32 sm:pb-24">
         <Container>
           <Reveal>
             <Eyebrow>About ORYVA-AI</Eyebrow>
           </Reveal>
-          <Reveal delay={0.1}>
-            <h1 className="mt-6 font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl md:text-7xl">
-              We are here for the work after the idea.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              ORYVA-AI began with a simple belief: technology should not make
-              people feel smaller. It should help them see more clearly what they
-              can do next.
-            </p>
-          </Reveal>
+          <div className="mt-8 grid gap-x-12 gap-y-8 lg:grid-cols-12 lg:items-end">
+            <Reveal delay={0.08} className="lg:col-span-7">
+              <h1 className="font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+                We are here for the work after the idea.
+              </h1>
+            </Reveal>
+            <Reveal delay={0.16} className="lg:col-span-5">
+              <p className="text-pretty text-lg leading-relaxed text-ink-soft lg:border-l lg:border-hairline lg:pl-6">
+                ORYVA-AI began with a simple belief: technology should not make people
+                feel smaller. It should help them see more clearly what they can do
+                next.
+              </p>
+            </Reveal>
+          </div>
         </Container>
       </section>
 
       {/* Our Story */}
       <section className="py-20 sm:py-28">
-        <Container className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <Reveal>
-              <Eyebrow>Our Story</Eyebrow>
-            </Reveal>
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.1}>
-              <PullQuote>There is no shortage of impressive technology.</PullQuote>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
-                There are demos that look magical, tools that promise everything,
-                and conversations that move faster than real progress. But when
-                someone is choosing a direction, learning something new, or trying
-                to turn a rough idea into a real one, they need more than a moment
-                of surprise. They need context, care, and a product that stays
-                useful after the first click.
-              </p>
-            </Reveal>
-          </div>
+        <Container>
+          <Reveal>
+            <Eyebrow>Our Story</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <PullQuote className="mt-8 max-w-3xl">
+              There is no shortage of impressive technology.
+            </PullQuote>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
+              There are demos that look magical, tools that promise everything, and
+              conversations that move faster than real progress. But when someone is
+              choosing a direction, learning something new, or trying to turn a rough
+              idea into a real one, they need more than a moment of surprise. They need
+              context, care, and a product that stays useful after the first click.
+            </p>
+          </Reveal>
         </Container>
       </section>
 

@@ -4,11 +4,11 @@ export function Eyebrow({ className, children }: { className?: string; children:
   return (
     <div
       className={cn(
-        "flex items-center gap-2 font-[family-name:var(--font-label)] text-[11px] uppercase tracking-[0.22em] text-brand",
+        "flex items-center gap-2.5 font-[family-name:var(--font-label)] text-[13px] font-medium uppercase tracking-[0.18em] text-brand",
         className
       )}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-signal" />
+      <span className="h-2 w-2 rounded-full bg-signal" />
       {children}
     </div>
   );

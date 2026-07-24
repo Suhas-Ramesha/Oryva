@@ -51,45 +51,58 @@ export default function HowItWorksPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
+      <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24">
         <div className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]" />
         <Container className="relative">
           <Reveal>
             <Eyebrow>How It Works</Eyebrow>
           </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="mt-6 max-w-3xl font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl md:text-7xl">
-              From a real idea to a product people return to.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
-              It shows how ORYVA-AI thinks about every product we build now and in the
-              future — from the first human insight to a living product in the world.
-            </p>
-          </Reveal>
+          <div className="mt-8 grid gap-x-12 gap-y-10 lg:grid-cols-12 lg:items-end">
+            <Reveal delay={0.08} className="lg:col-span-7">
+              <h1 className="font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+                From a real idea to a product people return to.
+              </h1>
+            </Reveal>
+            <div className="lg:col-span-5">
+              <Reveal delay={0.16}>
+                <p className="text-pretty text-lg leading-relaxed text-ink-soft lg:border-l lg:border-hairline lg:pl-6">
+                  It shows how ORYVA-AI thinks about every product we build now and in
+                  the future — from the first human insight to a living product in the
+                  world.
+                </p>
+              </Reveal>
+              <Reveal delay={0.24}>
+                <ul className="mt-8 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:pl-6">
+                  {STEPS.map((step) => (
+                    <li key={step.index} className="flex items-baseline gap-2.5">
+                      <span className="font-[family-name:var(--font-label)] text-xs tracking-[0.2em] text-signal">
+                        {step.index}
+                      </span>
+                      <span className="text-sm text-ink-soft">{step.title}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </div>
+          </div>
         </Container>
       </section>
 
       {/* The ORYVA-AI product approach */}
       <section className="py-20 sm:py-28">
-        <Container className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <Reveal>
-              <Eyebrow>The ORYVA-AI product approach</Eyebrow>
-            </Reveal>
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.1}>
-              <p className="max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
-                We do not begin with technology and search for a reason to use it. We
-                begin with a real situation: a question people keep asking, a process
-                that feels harder than it should, or a possibility that deserves to be
-                made real. From there, we shape the product around what would make a
-                meaningful difference.
-              </p>
-            </Reveal>
-          </div>
+        <Container>
+          <Reveal>
+            <Eyebrow>The ORYVA-AI product approach</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-8 max-w-3xl font-[family-name:var(--font-display)] text-balance text-2xl leading-snug text-ink sm:text-3xl md:text-[2.25rem] md:leading-[1.2]">
+              We do not begin with technology and search for a reason to use it. We
+              begin with a real situation: a question people keep asking, a process
+              that feels harder than it should, or a possibility that deserves to be
+              made real. From there, we shape the product around what would make a
+              meaningful difference.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
@@ -129,22 +142,18 @@ export default function HowItWorksPage() {
 
       {/* What we are building for */}
       <section className="py-20 sm:py-28">
-        <Container className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <Reveal>
-              <Eyebrow>What we are building for</Eyebrow>
-            </Reveal>
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.1}>
-              <p className="max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
-                The career platform is the first expression of this approach, not the
-                only one. Over time, ORYVA-AI will create products wherever thoughtful
-                intelligence can help people understand more, move forward with
-                confidence, and turn potential into progress.
-              </p>
-            </Reveal>
-          </div>
+        <Container>
+          <Reveal>
+            <Eyebrow>What we are building for</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-8 max-w-3xl text-pretty text-xl leading-relaxed text-ink-soft sm:text-2xl">
+              The career platform is the first expression of this approach, not the
+              only one. Over time, ORYVA-AI will create products wherever thoughtful
+              intelligence can help people understand more, move forward with
+              confidence, and turn potential into progress.
+            </p>
+          </Reveal>
         </Container>
       </section>
 

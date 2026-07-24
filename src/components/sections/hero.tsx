@@ -26,7 +26,7 @@ function SlideShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-[26rem] flex-col justify-between gap-6 rounded-3xl border border-hairline bg-paper-2 p-8 sm:min-h-[30rem]">
+    <div className="flex min-h-[20rem] flex-col justify-between gap-5 rounded-3xl border border-hairline bg-paper-2 p-7 sm:min-h-[24rem] sm:p-8">
       <div>
         <Eyebrow>{label}</Eyebrow>
         <h2 className="mt-5 font-[family-name:var(--font-display)] text-2xl leading-tight text-ink sm:text-3xl">
@@ -108,21 +108,21 @@ const SLIDES = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
+    <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]" />
 
-      <Container className="relative grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
+      <Container className="relative grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
         <div>
           <Reveal>
             <Eyebrow>ORYVA-AI</Eyebrow>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 className="mt-6 max-w-2xl font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl md:text-7xl">
+            <h1 className="mt-5 max-w-2xl font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
               Build what people can actually use.
             </h1>
           </Reveal>
           <Reveal delay={0.16}>
-            <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
+            <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
               ORYVA-AI is where thoughtful technology, practical design, and human
               ambition meet. We are building intelligent products for the moments when
               people need more clarity, more confidence, and a better way forward.
@@ -136,7 +136,7 @@ export function Hero() {
             </p>
           </Reveal>
           <Reveal delay={0.3}>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Magnetic>
                 <Button size="lg" asChild>
                   <Link href="/product" className="flex items-center gap-2">

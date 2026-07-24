@@ -31,25 +31,21 @@ export default function HomePage() {
 
       {/* A little about us */}
       <section className="py-20 sm:py-28">
-        <Container className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <Reveal>
-              <Eyebrow>A little about us</Eyebrow>
-            </Reveal>
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.1}>
-              <p className="font-[family-name:var(--font-display)] text-balance text-2xl leading-snug text-ink sm:text-3xl md:text-[2.25rem] md:leading-[1.2]">
-                ORYVA-AI is a product company in motion. We are creating an AI-powered
-                career platform and building a community for people who want to make,
-                test, and grow with technology.
-              </p>
-              <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
-                The two sides belong together: better products come from staying close
-                to curious people and real questions.
-              </p>
-            </Reveal>
-          </div>
+        <Container>
+          <Reveal>
+            <Eyebrow>A little about us</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-8 max-w-4xl font-[family-name:var(--font-display)] text-balance text-3xl leading-snug text-ink sm:text-4xl md:text-[2.75rem] md:leading-[1.18]">
+              ORYVA-AI is a product company in motion. We are creating an AI-powered
+              career platform and building a community for people who want to make,
+              test, and grow with technology.
+            </p>
+            <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
+              The two sides belong together: better products come from staying close to
+              curious people and real questions.
+            </p>
+          </Reveal>
         </Container>
       </section>
 

@@ -91,26 +91,22 @@ export default function ProductPage() {
 
       {/* The idea behind the product */}
       <section className="py-20 sm:py-28">
-        <Container className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <Reveal>
-              <Eyebrow>The idea behind the product</Eyebrow>
-            </Reveal>
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.1}>
-              <p className="font-[family-name:var(--font-display)] text-balance text-2xl leading-snug text-ink sm:text-3xl md:text-[2.25rem] md:leading-[1.2]">
-                People often make career decisions with incomplete information. They know
-                they want change, but cannot always see where their strengths fit, which
-                skills will matter next, or how to turn curiosity into a realistic
-                direction.
-              </p>
-              <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
-                Our product is being shaped to make that process feel more personal, more
-                connected, and less overwhelming.
-              </p>
-            </Reveal>
-          </div>
+        <Container>
+          <Reveal>
+            <Eyebrow>The idea behind the product</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-8 max-w-4xl font-[family-name:var(--font-display)] text-balance text-2xl leading-snug text-ink sm:text-3xl md:text-[2.5rem] md:leading-[1.2]">
+              People often make career decisions with incomplete information. They know
+              they want change, but cannot always see where their strengths fit, which
+              skills will matter next, or how to turn curiosity into a realistic
+              direction.
+            </p>
+            <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
+              Our product is being shaped to make that process feel more personal, more
+              connected, and less overwhelming.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
@@ -168,25 +164,20 @@ export default function ProductPage() {
 
       {/* Still taking shape */}
       <section className="border-t border-hairline bg-paper-2 py-20 sm:py-28">
-        <Container className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <Reveal>
-              <Eyebrow>Still taking shape</Eyebrow>
-            </Reveal>
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.1}>
-              <p className="font-[family-name:var(--font-display)] text-balance text-2xl leading-snug text-ink sm:text-3xl md:text-[2rem] md:leading-[1.25]">
-                We are deliberately keeping the details flexible while the product
-                evolves.
-              </p>
-              <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
-                The direction is clear: build something that feels intelligent without
-                feeling impersonal, ambitious without becoming overwhelming, and useful
-                from the first meaningful interaction.
-              </p>
-            </Reveal>
-          </div>
+        <Container>
+          <Reveal>
+            <Eyebrow>Still taking shape</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-8 max-w-4xl font-[family-name:var(--font-display)] text-balance text-2xl leading-snug text-ink sm:text-3xl md:text-[2.5rem] md:leading-[1.2]">
+              We are deliberately keeping the details flexible while the product evolves.
+            </p>
+            <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
+              The direction is clear: build something that feels intelligent without
+              feeling impersonal, ambitious without becoming overwhelming, and useful
+              from the first meaningful interaction.
+            </p>
+          </Reveal>
         </Container>
       </section>
 

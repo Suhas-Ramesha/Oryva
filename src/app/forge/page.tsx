@@ -51,17 +51,26 @@ export default function ForgePage() {
           className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(ellipse_70%_55%_at_50%_0%,black,transparent)]"
           aria-hidden
         />
-        <Container className="relative pt-28 pb-16 sm:pt-36 sm:pb-24">
+        <Container className="relative pt-28 pb-16 sm:pt-32 sm:pb-24">
           <Reveal>
             <Eyebrow>ORYVA FORGE</Eyebrow>
-            <h1 className="mt-6 font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl md:text-7xl">
-              Come with a question. Leave with proof.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              ORYVA FORGE is a builder program for people who learn best by getting
-              their hands on the work. It is not a classroom where you wait for the
-              right answer. It is a place to try, make, share, rethink, and make again.
-            </p>
+          </Reveal>
+          <div className="mt-8 grid gap-x-12 gap-y-8 lg:grid-cols-12 lg:items-end">
+            <Reveal delay={0.08} className="lg:col-span-7">
+              <h1 className="font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+                Come with a question. Leave with proof.
+              </h1>
+            </Reveal>
+            <Reveal delay={0.16} className="lg:col-span-5">
+              <p className="text-pretty text-lg leading-relaxed text-ink-soft lg:border-l lg:border-hairline lg:pl-6">
+                ORYVA FORGE is a builder program for people who learn best by getting
+                their hands on the work. It is not a classroom where you wait for the
+                right answer. It is a place to try, make, share, rethink, and make
+                again.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={0.24}>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Button size="lg" asChild>
                 <a href="#apply">Enter ORYVA FORGE</a>
@@ -76,25 +85,21 @@ export default function ForgePage() {
 
       {/* What FORGE feels like */}
       <section className="border-t border-hairline bg-paper-2 py-20 sm:py-28">
-        <Container className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <Reveal>
-              <Eyebrow>What FORGE feels like</Eyebrow>
-            </Reveal>
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.1}>
-              <p className="font-[family-name:var(--font-display)] text-balance text-2xl leading-snug text-ink sm:text-3xl md:text-[2.25rem] md:leading-[1.2]">
-                Some people arrive with a half-formed idea. Some arrive with a project
-                that has stopped moving. Some simply want to understand how intelligent
-                products are made.
-              </p>
-              <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
-                All are welcome to begin somewhere. FORGE gives each person a practical
-                way in.
-              </p>
-            </Reveal>
-          </div>
+        <Container>
+          <Reveal>
+            <Eyebrow>What FORGE feels like</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-8 max-w-4xl font-[family-name:var(--font-display)] text-balance text-2xl leading-snug text-ink sm:text-3xl md:text-[2.5rem] md:leading-[1.2]">
+              Some people arrive with a half-formed idea. Some arrive with a project
+              that has stopped moving. Some simply want to understand how intelligent
+              products are made.
+            </p>
+            <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
+              All are welcome to begin somewhere. FORGE gives each person a practical
+              way in.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
