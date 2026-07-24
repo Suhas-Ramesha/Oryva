@@ -29,9 +29,9 @@ function SlideShell({
     <div className="flex min-h-[26rem] flex-col justify-between gap-6 rounded-3xl border border-hairline bg-paper-2 p-8 sm:min-h-[30rem]">
       <div>
         <Eyebrow>{label}</Eyebrow>
-        <h3 className="mt-5 font-[family-name:var(--font-display)] text-2xl leading-tight text-ink sm:text-3xl">
+        <h2 className="mt-5 font-[family-name:var(--font-display)] text-2xl leading-tight text-ink sm:text-3xl">
           {title}
-        </h3>
+        </h2>
         <p className="mt-3 max-w-md text-pretty leading-relaxed text-muted">{body}</p>
       </div>
       <div className="flex flex-1 items-center justify-center py-2">{children}</div>

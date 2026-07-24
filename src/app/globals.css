@@ -8,15 +8,15 @@
   --ink: #17130e;
   --ink-soft: #3a342b;
   --muted: #6e6559;
-  --muted-2: #948b7d;
+  --muted-2: #675e50; /* darkened for AA on paper/paper-3 small text */
   --hairline: #e6dfd1;
   --hairline-strong: rgba(23, 19, 14, 0.14);
   --brand: #12463a; /* pine */
   --brand-bright: #1c6b57;
   --brand-dim: rgba(18, 70, 58, 0.08);
-  --signal: #d2603a; /* terracotta */
-  --signal-bright: #e0724c;
-  --signal-soft: rgba(210, 96, 58, 0.12);
+  --signal: #c24e22; /* terracotta — AA with white button text (4.5:1) */
+  --signal-bright: #d2603a;
+  --signal-soft: rgba(194, 78, 34, 0.12);
 }
 
 @theme inline {

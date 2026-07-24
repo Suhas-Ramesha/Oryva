@@ -43,9 +43,9 @@ export function ForgeInteractive() {
         <Reveal key={track} delay={i * 0.08}>
           <Card className="flex h-full flex-col p-8">
             <Icon className="h-7 w-7 text-brand" strokeWidth={1.5} aria-hidden />
-            <h3 className="mt-6 font-[family-name:var(--font-display)] text-2xl leading-tight text-ink">
+            <h2 className="mt-6 font-[family-name:var(--font-display)] text-2xl leading-tight text-ink">
               {title}
-            </h3>
+            </h2>
             <p className="mt-4 flex-1 text-pretty leading-relaxed text-muted">
               {description}
             </p>
