@@ -1,150 +1,199 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import { PulseRadar } from "@/components/ui/pulse-radar";
+import { PullQuote } from "@/components/ui/pull-quote";
+import { NumberedStep } from "@/components/ui/numbered-step";
 import { ForgeInteractive } from "@/components/sections/forge-interactive";
+import { ForgeApplicationForm } from "@/components/forms/forge-application-form";
 
 export const metadata: Metadata = {
   title: "ORYVA FORGE",
   description:
-    "ORYVA FORGE is ORYVA-AI's program for builders — Workshops, Mentorship, Hackathons, and Fellowships. One program, four ways in.",
+    "ORYVA FORGE is a builder program for people who learn best by getting their hands on the work — workshops, mentorship, fellowships, and the Signal-to-Ship hackathon.",
 };
 
 const STEPS = [
-  "Choose a track",
-  "Apply / Register",
-  "Get matched or join your cohort",
-  "Build, learn, or ship",
-  "Present, graduate, or get recognized",
-];
-
-const BENEFITS = [
-  "Direct mentorship from ORYVA-AI builders",
-  "Hands-on skill-building, not just theory",
-  "Real build experience under real constraints",
-  "Certificates and recognition for what you ship",
-  "A path from workshop to fellowship for standout builders",
+  {
+    index: "01",
+    title: "Find the signal",
+    body: "It might be a small everyday problem, a challenge on campus, a gap in the way people learn, or a moment that should be easier than it is. The best signals are specific enough to feel real.",
+  },
+  {
+    index: "02",
+    title: "Turn it into a useful question",
+    body: "Teams work through a simple challenge: Who is this for? What is getting in their way? What is the smallest thing we could make that would genuinely help?",
+  },
+  {
+    index: "03",
+    title: "Build the proof",
+    body: "The goal is not a perfect product or a beautiful set of slides. The goal is a working proof — something another person can see, touch, try, or respond to before time runs out.",
+  },
+  {
+    index: "04",
+    title: "Show the learning",
+    body: "Teams share what they made, why they made it, and what changed when they tested the idea. We reward usefulness, courage, clarity, and smart choices — not just polish.",
+  },
+  {
+    index: "05",
+    title: "Keep the signal alive",
+    body: "Strong projects do not have to end when the event does. Selected teams can be invited to keep developing through follow-up critique, mentorship, or a future FORGE pathway.",
+  },
 ];
 
 export default function ForgePage() {
   return (
     <>
-      <section className="relative overflow-hidden pt-40 pb-20">
-        <div className="pointer-events-none absolute inset-0 bg-grid opacity-30 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black,transparent)]" />
-        <Container className="relative">
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(ellipse_70%_55%_at_50%_0%,black,transparent)]"
+          aria-hidden
+        />
+        <Container className="relative pt-28 pb-16 sm:pt-36 sm:pb-24">
           <Reveal>
             <Eyebrow>ORYVA FORGE</Eyebrow>
-            <h1 className="mt-6 max-w-2xl font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-              Workshops. Mentorship. Hackathons. Fellowships.
+            <h1 className="mt-6 font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl md:text-7xl">
+              Come with a question. Leave with proof.
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-              One program, four ways in. It runs from a first skill learned in a
-              workshop, to guidance from a mentor, to a working prototype at a
-              hackathon, to a sustained fellowship for those who want to go the
-              distance.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
+              ORYVA FORGE is a builder program for people who learn best by getting
+              their hands on the work. It is not a classroom where you wait for the
+              right answer. It is a place to try, make, share, rethink, and make again.
             </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <Button size="lg" asChild>
+                <a href="#apply">Enter ORYVA FORGE</a>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a href="#apply-signal-to-ship">Bring Your Signal</a>
+              </Button>
+            </div>
           </Reveal>
         </Container>
       </section>
 
-      <section className="border-t border-border-subtle py-24">
+      {/* What FORGE feels like */}
+      <section className="border-t border-hairline bg-paper-2 py-20 sm:py-28">
+        <Container className="grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-4">
+            <Reveal>
+              <Eyebrow>What FORGE feels like</Eyebrow>
+            </Reveal>
+          </div>
+          <div className="md:col-span-8">
+            <Reveal delay={0.1}>
+              <p className="font-[family-name:var(--font-display)] text-balance text-2xl leading-snug text-ink sm:text-3xl md:text-[2.25rem] md:leading-[1.2]">
+                Some people arrive with a half-formed idea. Some arrive with a project
+                that has stopped moving. Some simply want to understand how intelligent
+                products are made.
+              </p>
+              <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
+                All are welcome to begin somewhere. FORGE gives each person a practical
+                way in.
+              </p>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* Three tracks */}
+      <section className="py-20 sm:py-28">
         <Container>
           <Reveal>
-            <Eyebrow>The Four Tracks</Eyebrow>
-            <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold tracking-tight">
-              Find the track that fits where you are.
-            </h2>
+            <Eyebrow>Three tracks</Eyebrow>
           </Reveal>
 
           <ForgeInteractive />
         </Container>
       </section>
 
-      <section className="border-t border-border-subtle bg-background-elevated py-24">
+      {/* The FORGE Hackathon: Signal-to-Ship */}
+      <section className="border-t border-hairline bg-paper-2 py-20 sm:py-28">
         <Container>
-          <Reveal>
-            <Eyebrow>Current Cohort</Eyebrow>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <div className="mt-8 flex flex-col items-start gap-6 rounded-2xl border border-dashed border-border-strong p-10 sm:flex-row sm:items-center">
-              <PulseRadar />
-              <div>
-                <div className="flex items-center gap-3">
-                  <h3 className="font-display text-lg font-medium tracking-tight">
-                    Applications open soon
-                  </h3>
-                  <Badge>Coming Soon</Badge>
-                </div>
-                <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted">
-                  We&apos;re finalizing dates for the next intake. Apply below to any
-                  track and we&apos;ll reach out the moment a cohort opens that fits
-                  you.
+          <div className="grid gap-10 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <Reveal>
+                <Eyebrow>The FORGE Hackathon</Eyebrow>
+                <h2 className="mt-5 font-[family-name:var(--font-display)] text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl">
+                  Signal-to-Ship
+                </h2>
+              </Reveal>
+            </div>
+            <div className="md:col-span-7">
+              <Reveal delay={0.1}>
+                <p className="max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
+                  Signal-to-Ship is ORYVA FORGE&apos;s own kind of hackathon. Instead of
+                  beginning with a generic theme, every team begins with a signal:
+                  something they have noticed in the real world that feels broken,
+                  overlooked, frustrating, or full of possibility.
                 </p>
-              </div>
+              </Reveal>
+            </div>
+          </div>
+
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {STEPS.map(({ index, title, body }, i) => (
+              <Reveal key={index} delay={0.1 + i * 0.06}>
+                <NumberedStep index={index} title={title}>
+                  {body}
+                </NumberedStep>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.1}>
+            <div className="mt-12">
+              <Button size="lg" asChild>
+                <a href="#apply-signal-to-ship">Bring Your Signal</a>
+              </Button>
             </div>
           </Reveal>
         </Container>
       </section>
 
-      <section className="border-t border-border-subtle py-24">
-        <Container className="grid gap-16 md:grid-cols-2">
+      {/* Application */}
+      <section id="apply" className="scroll-mt-28 border-t border-hairline py-20 sm:py-28">
+        <Container>
+          <span id="apply-signal-to-ship" aria-hidden className="block scroll-mt-28" />
           <Reveal>
-            <Eyebrow>How It Works</Eyebrow>
-            <ol className="mt-8 space-y-6">
-              {STEPS.map((step, i) => (
-                <li key={step} className="flex items-start gap-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border-strong font-mono text-xs text-accent-bright">
-                    {i + 1}
-                  </span>
-                  <span className="pt-1 text-sm leading-relaxed text-foreground/90">{step}</span>
-                </li>
-              ))}
-            </ol>
+            <div className="mx-auto max-w-2xl">
+              <Eyebrow>Application</Eyebrow>
+              <h2 className="mt-5 font-[family-name:var(--font-display)] text-3xl leading-tight text-ink sm:text-4xl">
+                Apply to ORYVA FORGE.
+              </h2>
+              <p className="mt-4 text-pretty leading-relaxed text-muted">
+                Pick your track below — the form adapts to what we need to know for each
+                one.
+              </p>
+            </div>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <Eyebrow>Why Join ORYVA FORGE</Eyebrow>
-            <ul className="mt-8 space-y-5">
-              {BENEFITS.map((benefit) => (
-                <li key={benefit} className="flex items-start gap-3 border-b border-border-subtle pb-5 text-sm leading-relaxed text-muted last:border-0">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-bright" />
-                  {benefit}
-                </li>
-              ))}
-            </ul>
+            <div className="mx-auto mt-8 max-w-2xl rounded-3xl border border-hairline bg-paper-2 p-8 md:p-12">
+              <ForgeApplicationForm />
+            </div>
           </Reveal>
         </Container>
       </section>
 
-      <section className="border-t border-border-subtle py-24">
-        <Container>
+      {/* Closing band */}
+      <section className="py-24 sm:py-32">
+        <Container className="flex flex-col items-center text-center">
           <Reveal>
-            <Eyebrow>Past Cohorts</Eyebrow>
-            <div className="mt-8 rounded-2xl border border-border-subtle p-10">
-              <div className="flex items-center justify-between">
-                {["01", "02", "03"].map((n, i) => (
-                  <div key={n} className="flex flex-1 items-center">
-                    <div className="flex flex-col items-center gap-2 text-center">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-full border border-dashed border-border-strong font-mono text-xs text-muted-2">
-                        {n}
-                      </span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-2">
-                        Cohort
-                      </span>
-                    </div>
-                    {i < 2 && (
-                      <div className="mx-3 h-px flex-1 border-t border-dashed border-border-strong" />
-                    )}
-                  </div>
-                ))}
-              </div>
-              <p className="mt-8 text-center text-sm leading-relaxed text-muted">
-                Our first cohorts are just getting underway — highlights from past
-                workshops, hackathons, and fellowships will appear here once
-                available.
-              </p>
+            <PullQuote className="max-w-3xl">
+              Come with a question. Leave with proof.
+            </PullQuote>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <Button size="lg" asChild>
+                <a href="#apply">Enter ORYVA FORGE</a>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a href="#apply-signal-to-ship">Bring Your Signal</a>
+              </Button>
             </div>
           </Reveal>
         </Container>

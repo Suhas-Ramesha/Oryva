@@ -32,8 +32,8 @@ export function WaitlistForm() {
 
   if (status === "success") {
     return (
-      <div className="flex items-center justify-center gap-2 rounded-xl border border-border-subtle bg-surface-2/60 px-6 py-4 text-sm text-foreground">
-        <CheckCircle2 className="h-4 w-4 text-accent-bright" />
+      <div className="flex items-center justify-center gap-2 rounded-xl border border-hairline bg-brand-dim px-6 py-4 text-sm text-ink">
+        <CheckCircle2 className="h-4 w-4 text-brand-bright" aria-hidden />
         Thanks — we&apos;ll notify you at launch.
       </div>
     );
@@ -53,15 +53,15 @@ export function WaitlistForm() {
         />
         <Button type="submit" disabled={status === "submitting"} className="shrink-0">
           {status === "submitting" ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
+            <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
           ) : (
             <span className="flex items-center gap-1.5">
-              Notify Me <ArrowRight className="h-3.5 w-3.5" />
+              Notify Me <ArrowRight className="h-3.5 w-3.5" aria-hidden />
             </span>
           )}
         </Button>
       </div>
-      {errors.email && <p className="mt-2 text-xs text-red-400">{errors.email.message}</p>}
+      {errors.email && <p className="mt-2 text-xs text-signal">{errors.email.message}</p>}
     </form>
   );
 }

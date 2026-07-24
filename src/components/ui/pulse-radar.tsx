@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 
 export function PulseRadar() {
   return (
-    <div className="relative flex h-14 w-14 shrink-0 items-center justify-center">
+    <div className="relative flex h-14 w-14 shrink-0 items-center justify-center" aria-hidden>
       {[0, 1, 2].map((i) => (
         <motion.span
           key={i}
-          className="absolute inset-0 rounded-full border border-accent/40"
+          className="absolute inset-0 rounded-full border border-signal/40"
           initial={{ scale: 0.4, opacity: 0.6 }}
           animate={{ scale: 1.8, opacity: 0 }}
           transition={{
@@ -20,8 +20,8 @@ export function PulseRadar() {
           }}
         />
       ))}
-      <div className="relative flex h-14 w-14 items-center justify-center rounded-full border border-border-strong bg-surface-2">
-        <Sparkles className="h-6 w-6 text-accent-bright" strokeWidth={1.5} />
+      <div className="relative flex h-14 w-14 items-center justify-center rounded-full border border-hairline-strong bg-paper-2">
+        <Sparkles className="h-6 w-6 text-signal" strokeWidth={1.5} />
       </div>
     </div>
   );
