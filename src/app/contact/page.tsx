@@ -1,74 +1,84 @@
 import type { Metadata } from "next";
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Reveal } from "@/components/ui/reveal";
 import { ContactForm } from "@/components/forms/contact-form";
-import { SocialIcon } from "@/components/ui/social-icon";
+import { SocialIcon, SOCIALS } from "@/components/ui/social-icon";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with ORYVA-AI — for services, ORYVA FORGE, our product, or anything else.",
+  description:
+    "Get in touch with ORYVA-AI — about the product, ORYVA FORGE, a partnership, or simply to say hello.",
 };
-
-const SOCIALS = [
-  { label: "LinkedIn", href: "#", short: "in" },
-  { label: "Twitter / X", href: "#", short: "X" },
-  { label: "Instagram", href: "#", short: "ig" },
-  { label: "GitHub", href: "#", short: "gh" },
-];
 
 export default function ContactPage() {
   return (
-    <section className="relative overflow-hidden pt-40 pb-28">
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-30 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black,transparent)]" />
-      <Container className="relative grid gap-16 md:grid-cols-[1fr_1.3fr]">
+    <section className="pt-28 pb-16 sm:pt-36 sm:pb-24">
+      <Container>
         <Reveal>
-          <Eyebrow>Contact Us</Eyebrow>
-          <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            We&apos;d love to hear from you.
+          <Eyebrow>Contact</Eyebrow>
+          <h1 className="mt-6 font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl md:text-7xl">
+            Let&apos;s start somewhere.
           </h1>
-          <p className="mt-5 max-w-sm text-base leading-relaxed text-muted">
-            Whether you&apos;re a prospective client, an ORYVA FORGE applicant, or a
-            partner — reach out directly.
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
+            Whether you have a question about the product, want to join ORYVA FORGE, are
+            interested in a partnership, or simply want to say hello, we would love to hear
+            from you.
           </p>
-
-          <div className="mt-10 space-y-4">
-            <a
-              href="mailto:contact@oryva-ai.com"
-              className="flex items-center gap-3 text-sm text-foreground/90 transition-colors hover:text-accent-bright"
-            >
-              <Mail className="h-4 w-4 text-muted-2" />
-              contact@oryva-ai.com
-            </a>
-            <a
-              href="tel:+910000000000"
-              className="flex items-center gap-3 text-sm text-foreground/90 transition-colors hover:text-accent-bright"
-            >
-              <Phone className="h-4 w-4 text-muted-2" />
-              +91 XXXXX XXXXX
-            </a>
-          </div>
-
-          <div className="mt-10 flex items-center gap-3">
-            {SOCIALS.map(({ label, href, short }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                className="h-10 w-10 rounded-full border border-border-subtle text-muted transition-colors hover:border-accent/50 hover:text-accent-bright"
-              >
-                <SocialIcon label={short} />
-              </a>
-            ))}
-          </div>
         </Reveal>
 
-        <Reveal delay={0.1}>
-          <div className="rounded-3xl border border-border-subtle bg-surface p-8 md:p-10">
-            <ContactForm />
-          </div>
-        </Reveal>
+        <div className="mt-16 grid gap-12 lg:grid-cols-2">
+          {/* LEFT column */}
+          <Reveal>
+            <div className="flex flex-col">
+              <p className="max-w-md text-pretty text-lg leading-relaxed text-ink-soft">
+                Tell us a little about what is on your mind. You do not need a polished
+                proposal. A few honest lines are enough to start the conversation.
+              </p>
+
+              <div className="mt-10">
+                <div className="font-[family-name:var(--font-label)] text-[11px] uppercase tracking-[0.22em] text-muted-2">
+                  Email us
+                </div>
+                <a
+                  href="mailto:contact@oryva-ai.com"
+                  className="mt-3 inline-flex items-center gap-3 text-ink transition-colors hover:text-brand"
+                >
+                  <Mail className="h-5 w-5 text-brand" aria-hidden />
+                  contact@oryva-ai.com
+                </a>
+              </div>
+
+              <div className="mt-10 flex items-center gap-3">
+                {SOCIALS.map(({ platform, label, href }) => (
+                  <a
+                    key={platform}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-hairline-strong text-ink-soft transition-colors hover:border-brand hover:text-brand"
+                  >
+                    <SocialIcon platform={platform} />
+                  </a>
+                ))}
+              </div>
+
+              <p className="mt-12 max-w-sm text-pretty text-sm leading-relaxed text-muted">
+                Good things often begin with a small message, a curious question, or an idea
+                that is not fully formed yet. Send it anyway.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* RIGHT column */}
+          <Reveal delay={0.1}>
+            <div className="rounded-2xl border border-hairline bg-paper-2 p-6 sm:p-8">
+              <ContactForm />
+            </div>
+          </Reveal>
+        </div>
       </Container>
     </section>
   );

@@ -1,98 +1,65 @@
 "use client";
 
-import * as React from "react";
-import { BookOpen, Users, Zap, Rocket, ArrowRight } from "lucide-react";
+import { BookOpen, Users, Rocket, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { Magnetic } from "@/components/ui/magnetic";
-import { ForgeApplicationForm, type Track } from "@/components/forms/forge-application-form";
+import { selectForgeTrack, type Track } from "@/components/forms/forge-application-form";
 
 const TRACKS: {
-  key: Track;
+  title: string;
+  track: Track;
   icon: typeof BookOpen;
-  format: string;
   description: string;
 }[] = [
   {
-    key: "Workshop",
+    title: "Workshops",
+    track: "Workshop",
     icon: BookOpen,
-    format: "Short, hands-on sessions",
-    description: "Practical sessions on AI tooling, product engineering, and system design — led by the ORYVA-AI team.",
+    description:
+      "Short, focused sessions for learning a useful skill and applying it immediately. You might explore AI tools, product thinking, interfaces, systems, or the art of making a rough idea tangible. The aim is simple: leave with a new capability and something you can point to.",
   },
   {
-    key: "Mentorship",
+    title: "Mentorship",
+    track: "Mentorship",
     icon: Users,
-    format: "1:1 / small-group guidance",
-    description: "Ongoing guidance from ORYVA-AI builders and invited mentors for people working on their own projects.",
+    description:
+      "For builders who need an honest conversation and a clearer next step. Mentorship offers focused guidance on shaping a project, navigating a decision, improving a portfolio, or finding the confidence to keep going.",
   },
   {
-    key: "Hackathon",
-    icon: Zap,
-    format: "Timed build events",
-    description: "Competitive, time-boxed events where teams build and ship a working product — judged, sometimes prized.",
-  },
-  {
-    key: "Fellowship",
+    title: "Fellowships",
+    track: "Fellowship",
     icon: Rocket,
-    format: "Extended, selective track",
-    description: "A longer, selective track for a small cohort to build a real project with sustained mentorship and support.",
+    description:
+      "For a small group ready to spend more time with one important idea. Fellows receive ongoing feedback, structure, and space to develop work that can travel beyond a single event.",
   },
 ];
 
 export function ForgeInteractive() {
-  const [selectedTrack, setSelectedTrack] = React.useState<Track>("Workshop");
-  const formRef = React.useRef<HTMLDivElement>(null);
-
-  const handleApply = (track: Track) => {
-    setSelectedTrack(track);
-    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
-    <>
-      <div className="mt-14 grid gap-5 sm:grid-cols-2">
-        {TRACKS.map(({ key, icon: Icon, format, description }, i) => (
-          <Reveal key={key} delay={i * 0.07}>
-            <Card className="flex h-full flex-col p-8">
-              <Icon className="h-7 w-7 text-accent-bright" strokeWidth={1.5} />
-              <h3 className="mt-6 font-display text-xl font-medium tracking-tight">{key}</h3>
-              <p className="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-muted-2">
-                {format}
-              </p>
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">{description}</p>
-              <Magnetic className="mt-6 inline-block w-fit" strength={0.25}>
-                <Button variant="secondary" onClick={() => handleApply(key)}>
-                  <span className="flex items-center gap-2">
-                    Apply — {key}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </Button>
-              </Magnetic>
-            </Card>
-          </Reveal>
-        ))}
-      </div>
-
-      <div ref={formRef} id="apply" className="mt-28 scroll-mt-28">
-        <Reveal>
-          <div className="mx-auto max-w-2xl rounded-3xl border border-border-subtle bg-surface p-8 md:p-12">
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent-bright">
-              Application
+    <div className="mt-14 grid gap-6 md:grid-cols-3">
+      {TRACKS.map(({ title, track, icon: Icon, description }, i) => (
+        <Reveal key={track} delay={i * 0.08}>
+          <Card className="flex h-full flex-col p-8">
+            <Icon className="h-7 w-7 text-brand" strokeWidth={1.5} aria-hidden />
+            <h3 className="mt-6 font-[family-name:var(--font-display)] text-2xl leading-tight text-ink">
+              {title}
+            </h3>
+            <p className="mt-4 flex-1 text-pretty leading-relaxed text-muted">
+              {description}
             </p>
-            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-              Apply to ORYVA FORGE
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted">
-              Pick your track below — the form adapts to what we need to know for
-              each one.
-            </p>
-            <div className="mt-8">
-              <ForgeApplicationForm defaultTrack={selectedTrack} key={selectedTrack} />
-            </div>
-          </div>
+            <Magnetic className="mt-8 inline-block w-fit" strength={0.25}>
+              <Button variant="outline" onClick={() => selectForgeTrack(track)}>
+                <span className="flex items-center gap-2">
+                  Apply — {title}
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+                </span>
+              </Button>
+            </Magnetic>
+          </Card>
         </Reveal>
-      </div>
-    </>
+      ))}
+    </div>
   );
 }

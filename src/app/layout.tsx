@@ -3,7 +3,20 @@ import { Geist, Geist_Mono, Space_Grotesk, Fraunces } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { LenisProvider } from "@/components/providers/lenis-provider";
+import { SOCIALS } from "@/components/ui/social-icon";
 import "./globals.css";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ORYVA-AI",
+  url: "https://www.oryva-ai.com",
+  logo: "https://www.oryva-ai.com/opengraph-image",
+  email: "contact@oryva-ai.com",
+  description:
+    "ORYVA-AI builds intelligent products and runs ORYVA FORGE, a builder program — for the moments when people need more clarity, more confidence, and a better way forward.",
+  sameAs: SOCIALS.map((s) => s.href),
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -62,6 +75,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <script
+          type="application/ld+json"
+          // Organization schema intentionally has no telephone field.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <LenisProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
