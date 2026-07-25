@@ -47,12 +47,12 @@ export function Navbar() {
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-6 py-4 md:px-8">
         <Link
           href="/"
-          className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-ink"
+          className="font-display text-xl font-semibold tracking-tight text-ink"
         >
           ORYVA<span className="text-brand">-AI</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => {
             const active = pathname === link.href;
             return (
@@ -61,7 +61,7 @@ export function Navbar() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "group relative font-[family-name:var(--font-label)] text-[13px] font-medium tracking-tight transition-colors",
+                  "group relative font-label text-[15px] font-medium tracking-tight transition-colors xl:text-base",
                   active ? "text-ink" : "text-muted hover:text-ink"
                 )}
               >
