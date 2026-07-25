@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { PullQuote } from "@/components/ui/pull-quote";
+import { Magnetic } from "@/components/ui/magnetic";
 
 const SIDES = [
   {
@@ -30,40 +31,42 @@ export default function HomePage() {
       <Hero />
 
       {/* A little about us */}
-      <section className="py-20 sm:py-28">
+      <section className="py-14 sm:py-20">
         <Container>
-          <Reveal>
-            <Eyebrow>A little about us</Eyebrow>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-8 max-w-4xl font-[family-name:var(--font-display)] text-balance text-3xl leading-snug text-ink sm:text-4xl md:text-[2.75rem] md:leading-[1.18]">
-              ORYVA-AI is a product company in motion. We are creating an AI-powered
-              career platform and building a community for people who want to make,
-              test, and grow with technology.
-            </p>
-            <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
-              The two sides belong together: better products come from staying close to
-              curious people and real questions.
-            </p>
-          </Reveal>
+          <div className="grid gap-6 md:grid-cols-12 md:items-start md:gap-8">
+            <Reveal className="md:col-span-4">
+              <Eyebrow>A little about us</Eyebrow>
+              <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
+                A product company in motion.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.08} className="md:col-span-8">
+              <p className="text-pretty text-lg leading-relaxed text-ink-soft">
+                We are creating an AI-powered career platform and building a community
+                for people who want to make, test, and grow with technology. The two
+                sides belong together: better products come from staying close to
+                curious people and real questions.
+              </p>
+            </Reveal>
+          </div>
         </Container>
       </section>
 
       {/* What we are building */}
-      <section className="border-t border-hairline bg-paper-2 py-20 sm:py-28">
+      <section className="border-t border-hairline bg-paper-2 py-14 sm:py-20">
         <Container>
-          <div className="grid gap-10 md:grid-cols-12">
+          <div className="grid gap-6 md:grid-cols-12 md:gap-8">
             <div className="md:col-span-4">
               <Reveal>
                 <Eyebrow>What we are building</Eyebrow>
-                <h2 className="mt-5 font-[family-name:var(--font-display)] text-3xl leading-tight text-ink sm:text-4xl">
+                <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
                   Two sides, one intent.
                 </h2>
               </Reveal>
             </div>
             <div className="md:col-span-8">
-              <Reveal delay={0.1}>
-                <p className="max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
+              <Reveal delay={0.08}>
+                <p className="text-pretty text-lg leading-relaxed text-ink-soft">
                   Our first product is being designed for people who are trying to make
                   sense of their next move. Alongside it, ORYVA FORGE gives students,
                   developers, designers, and first-time builders a place to get
@@ -73,23 +76,21 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {SIDES.map((side, i) => (
-              <Reveal key={side.href} delay={0.1 + i * 0.08}>
+              <Reveal key={side.href} delay={0.08 + i * 0.06}>
                 <Link
                   href={side.href}
-                  className="group flex h-full flex-col justify-between gap-8 rounded-2xl border border-hairline bg-paper p-8 transition-colors hover:border-brand/40"
+                  className="group flex h-full flex-col justify-between gap-6 rounded-2xl border border-hairline bg-paper p-7 transition-colors hover:border-brand/40"
                 >
                   <div>
                     <Eyebrow>{side.label}</Eyebrow>
-                    <h3 className="mt-4 font-[family-name:var(--font-display)] text-2xl text-ink">
-                      {side.title}
-                    </h3>
+                    <h3 className="mt-4 font-display text-2xl text-ink">{side.title}</h3>
                     <p className="mt-3 text-pretty leading-relaxed text-muted">
                       {side.body}
                     </p>
                   </div>
-                  <span className="inline-flex items-center gap-1.5 font-[family-name:var(--font-label)] text-[13px] font-medium tracking-tight text-brand">
+                  <span className="inline-flex items-center gap-1.5 font-label text-[13px] font-medium tracking-tight text-brand">
                     {side.cta}
                     <ArrowUpRight
                       className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -104,7 +105,7 @@ export default function HomePage() {
       </section>
 
       {/* Brand-line closing band */}
-      <section className="py-24 sm:py-32">
+      <section className="border-t border-hairline bg-paper-2 py-16 sm:py-20">
         <Container className="flex flex-col items-center text-center">
           <Reveal>
             <PullQuote className="max-w-3xl">
@@ -112,14 +113,18 @@ export default function HomePage() {
               become useful.
             </PullQuote>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" asChild>
-                <Link href="/product">Explore Our Product</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/forge">Discover ORYVA FORGE</Link>
-              </Button>
+          <Reveal delay={0.08}>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Magnetic>
+                <Button size="lg" asChild>
+                  <Link href="/product">Explore Our Product</Link>
+                </Button>
+              </Magnetic>
+              <Magnetic>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/forge">Discover ORYVA FORGE</Link>
+                </Button>
+              </Magnetic>
             </div>
           </Reveal>
         </Container>

@@ -16,13 +16,12 @@ export function Footer() {
 
   return (
     <footer className="border-t border-hairline bg-paper-3">
-      <Container className="py-16">
-        <p className="max-w-2xl font-[family-name:var(--font-display)] text-balance text-2xl italic leading-snug text-ink sm:text-[1.75rem]">
-          Real ideas deserve more than a good presentation. They deserve a chance to
-          become useful.
+      <Container className="py-12 sm:py-14">
+        <p className="max-w-xl font-display text-balance text-xl italic leading-snug text-ink sm:text-2xl">
+          Ideas, made useful.
         </p>
 
-        <div className="mt-14 grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="mt-10 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div className="max-w-sm">
             <Link
               href="/"

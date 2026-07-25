@@ -26,18 +26,18 @@ function SlideShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-[20rem] flex-col justify-between gap-5 rounded-3xl border border-hairline bg-paper-2 p-7 sm:min-h-[24rem] sm:p-8">
+    <div className="flex min-h-[18rem] flex-col justify-between gap-4 rounded-3xl border border-hairline bg-paper-2 p-6 sm:min-h-[22rem] sm:p-8">
       <div>
         <Eyebrow>{label}</Eyebrow>
-        <h2 className="mt-5 font-[family-name:var(--font-display)] text-2xl leading-tight text-ink sm:text-3xl">
+        <h2 className="mt-4 font-display text-2xl leading-tight text-ink sm:text-3xl">
           {title}
         </h2>
         <p className="mt-3 max-w-md text-pretty leading-relaxed text-muted">{body}</p>
       </div>
-      <div className="flex flex-1 items-center justify-center py-2">{children}</div>
+      <div className="flex flex-1 items-center justify-center py-1">{children}</div>
       <Link
         href={href}
-        className="inline-flex items-center gap-1.5 font-[family-name:var(--font-label)] text-[13px] font-medium tracking-tight text-brand hover:text-brand-bright"
+        className="inline-flex items-center gap-1.5 font-label text-[13px] font-medium tracking-tight text-brand hover:text-brand-bright"
       >
         {cta}
         <ArrowUpRight className="h-4 w-4" aria-hidden />
@@ -73,9 +73,7 @@ const SLIDES = [
           key={t}
           className="flex items-center justify-between rounded-xl border border-hairline bg-paper px-4 py-3"
         >
-          <span className="font-[family-name:var(--font-label)] text-sm tracking-tight text-ink">
-            {t}
-          </span>
+          <span className="font-label text-sm tracking-tight text-ink">{t}</span>
           <span className="h-2 w-2 rounded-full bg-signal" />
         </div>
       ))}
@@ -96,9 +94,7 @@ const SLIDES = [
         ["03", "Build the intelligence around it"],
       ].map(([n, t]) => (
         <li key={n} className="flex items-center gap-3">
-          <span className="font-[family-name:var(--font-label)] text-sm tracking-[0.2em] text-signal">
-            {n}
-          </span>
+          <span className="font-label text-sm tracking-[0.2em] text-signal">{n}</span>
           <span className="text-sm text-ink-soft">{t}</span>
         </li>
       ))}
@@ -116,32 +112,28 @@ export function Hero() {
           <Reveal>
             <Eyebrow>ORYVA-AI</Eyebrow>
           </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="mt-5 max-w-2xl font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+          <Reveal delay={0.06}>
+            <h1 className="mt-5 max-w-2xl font-display text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
               Build what people can actually use.
             </h1>
           </Reveal>
-          <Reveal delay={0.16}>
+          <Reveal delay={0.12}>
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
               ORYVA-AI is where thoughtful technology, practical design, and human
-              ambition meet. We are building intelligent products for the moments when
-              people need more clarity, more confidence, and a better way forward.
+              ambition meet — building intelligent products for moments when people need
+              more clarity, confidence, and a better way forward.
             </p>
           </Reveal>
-          <Reveal delay={0.22}>
-            <p className="mt-4 max-w-xl text-pretty leading-relaxed text-muted">
-              The future is not built by talking about what AI could do. It is built by
-              finding the moments where it can make life, learning, and work feel less
-              confusing — then creating something people will genuinely return to.
-            </p>
-          </Reveal>
-          <Reveal delay={0.3}>
+          <Reveal delay={0.2}>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Magnetic>
                 <Button size="lg" asChild>
-                  <Link href="/product" className="flex items-center gap-2">
+                  <Link href="/product" className="group flex items-center gap-2">
                     Explore Our Product
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />
+                    <ArrowRight
+                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                      aria-hidden
+                    />
                   </Link>
                 </Button>
               </Magnetic>
@@ -154,7 +146,7 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.2}>
+        <Reveal delay={0.16}>
           <Carousel slides={SLIDES} ariaLabel="What we are building" />
         </Reveal>
       </Container>
