@@ -88,9 +88,10 @@ export default function HomePage() {
       <section className="border-t border-hairline bg-paper-2 py-16 sm:py-20">
         <Container className="flex flex-col items-center text-center">
           <Reveal>
-            <PullQuote className="max-w-3xl">
-              Real ideas deserve more than a good presentation. They deserve a chance to
-              become useful.
+            <PullQuote className="max-w-4xl">
+              Real ideas deserve more than a good presentation.
+              <br className="hidden sm:block" />{" "}
+              They deserve a chance to become useful.
             </PullQuote>
           </Reveal>
         </Container>

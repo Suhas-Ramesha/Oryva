@@ -1,13 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export type JourneyStep = {
@@ -24,95 +18,35 @@ export function ProductJourney({
   className?: string;
 }) {
   const reducedMotion = useReducedMotion() ?? false;
-  const sectionRef = React.useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 80%", "end 40%"],
-  });
-  const progress = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 24,
-    restDelta: 0.001,
-  });
-  const lineScale = useTransform(progress, [0, 1], [0, 1]);
 
   return (
-    <section ref={sectionRef} className={cn("relative", className)}>
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-hairline md:left-1/2 md:block md:-translate-x-1/2 md:w-full md:max-w-none md:bg-transparent"
-      >
-        <div className="relative mx-auto hidden h-px w-full max-w-4xl bg-hairline md:block">
-          <motion.div
-            className="absolute inset-y-0 left-0 origin-left bg-brand-bright"
-            style={{ scaleX: reducedMotion ? 1 : lineScale }}
+    <ol className={cn("grid gap-5 md:grid-cols-3 md:gap-6", className)}>
+      {steps.map((step, index) => (
+        <motion.li
+          key={step.index}
+          className="group relative overflow-hidden rounded-2xl border border-hairline bg-paper p-6 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-brand/50 hover:shadow-[0_20px_44px_-28px_rgba(110,168,255,0.65)] sm:p-7"
+          initial={reducedMotion ? false : { opacity: 0, y: 26, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.4, margin: "-8% 0px -10% 0px" }}
+          transition={{
+            duration: reducedMotion ? 0 : 0.55,
+            ease: [0.16, 1, 0.3, 1],
+            delay: reducedMotion ? 0 : index * 0.1,
+          }}
+        >
+          <span className="font-label text-sm font-medium tracking-[0.22em] text-signal">
+            {step.index}
+          </span>
+          <h3 className="mt-3 font-display text-xl leading-tight text-ink sm:text-2xl">
+            {step.title}
+          </h3>
+          <p className="mt-3 text-pretty leading-relaxed text-muted">{step.body}</p>
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-x-6 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-brand-bright to-transparent transition-transform duration-500 group-hover:scale-x-100"
           />
-        </div>
-        <motion.div
-          className="absolute inset-x-0 top-0 origin-top bg-brand-bright md:hidden"
-          style={{ scaleY: reducedMotion ? 1 : lineScale, width: 2 }}
-        />
-      </div>
-
-      <ol className="relative grid gap-8 md:grid-cols-3 md:gap-6">
-        {steps.map((step, index) => {
-          const start = index / steps.length;
-          const end = (index + 0.85) / steps.length;
-          return (
-            <JourneyNode
-              key={step.index}
-              step={step}
-              progress={progress}
-              start={start}
-              end={end}
-              reducedMotion={reducedMotion}
-            />
-          );
-        })}
-      </ol>
-    </section>
-  );
-}
-
-function JourneyNode({
-  step,
-  progress,
-  start,
-  end,
-  reducedMotion,
-}: {
-  step: JourneyStep;
-  progress: ReturnType<typeof useSpring>;
-  start: number;
-  end: number;
-  reducedMotion: boolean;
-}) {
-  const opacity = useTransform(progress, [start, end], [0.45, 1]);
-  const border = useTransform(
-    progress,
-    [start, end],
-    ["rgba(95,104,120,0.55)", "rgba(110,168,255,0.9)"]
-  );
-
-  return (
-    <motion.li
-      className="relative rounded-2xl border bg-paper p-6 sm:p-7"
-      style={
-        reducedMotion
-          ? undefined
-          : {
-              opacity,
-              borderColor: border,
-            }
-      }
-    >
-      <span className="font-label text-sm font-medium tracking-[0.22em] text-signal">
-        {step.index}
-      </span>
-      <h3 className="mt-3 font-display text-xl leading-tight text-ink sm:text-2xl">
-        {step.title}
-      </h3>
-      <p className="mt-3 text-pretty leading-relaxed text-muted">{step.body}</p>
-    </motion.li>
+        </motion.li>
+      ))}
+    </ol>
   );
 }

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { ForgeInteractive } from "@/components/sections/forge-interactive";
 import { Magnetic } from "@/components/ui/magnetic";
-import { SprintArc } from "@/components/sections/sprint-arc";
+import { ScrollSteps } from "@/components/sections/scroll-steps";
 import { PullQuote } from "@/components/ui/pull-quote";
 
 export const metadata: Metadata = {
@@ -138,8 +138,8 @@ export default function ForgePage() {
             </div>
           </div>
 
-          <div className="mt-10">
-            <SprintArc steps={STEPS} />
+          <div className="mt-12">
+            <ScrollSteps steps={STEPS} />
           </div>
         </Container>
       </section>

@@ -76,18 +76,11 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${fraunces.variable} h-full antialiased`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{document.documentElement.dataset.intro=sessionStorage.getItem("oryva:intro-seen")==="true"?"skip":"play"}catch{document.documentElement.dataset.intro="play"}`,
-          }}
-        />
-      </head>
       <body className="flex min-h-full flex-col font-sans">
         <IntroSequence />
+        {/* Organization schema intentionally has no telephone field. */}
         <script
           type="application/ld+json"
-          // Organization schema intentionally has no telephone field.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <LenisProvider>

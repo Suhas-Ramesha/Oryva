@@ -41,9 +41,13 @@ export function ForgeInteractive() {
   return (
     <div className="mt-14 grid gap-6 md:grid-cols-3">
       {TRACKS.map(({ title, track, icon: Icon, description }, i) => (
-        <Reveal key={track} delay={i * 0.08}>
-          <Card className="flex h-full flex-col p-8">
-            <Icon className="h-7 w-7 text-brand" strokeWidth={1.5} aria-hidden />
+        <Reveal key={track} delay={i * 0.08} className="h-full">
+          <Card className="group flex h-full flex-col p-8 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-brand/50 hover:shadow-[0_22px_48px_-30px_rgba(110,168,255,0.7)]">
+            <Icon
+              className="h-7 w-7 text-brand transition-colors duration-300 group-hover:text-brand-bright"
+              strokeWidth={1.5}
+              aria-hidden
+            />
             <h2 className="mt-6 font-[family-name:var(--font-display)] text-2xl leading-tight text-ink">
               {title}
             </h2>

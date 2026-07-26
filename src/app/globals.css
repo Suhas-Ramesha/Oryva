@@ -70,10 +70,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-html[data-intro="skip"] .intro-sequence {
-  display: none;
-}
-
 .brand-logo-gradient {
   background: linear-gradient(
     105deg,

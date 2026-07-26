@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { PullQuote } from "@/components/ui/pull-quote";
 import { Magnetic } from "@/components/ui/magnetic";
-import { ProcessTimeline } from "@/components/sections/process-timeline";
+import { ScrollSteps } from "@/components/sections/scroll-steps";
 
 export const metadata: Metadata = {
   title: "How It Works",
@@ -107,15 +107,15 @@ export default function HowItWorksPage() {
             <div className="md:col-span-8">
               <Reveal delay={0.08}>
                 <p className="text-pretty text-lg leading-relaxed text-ink-soft">
-                  Scroll the stages to see what changes at each point and why the order
-                  protects usefulness from becoming noise.
+                  Each stage builds on the one before it — scroll to follow the path from
+                  a human signal to a product worth returning to.
                 </p>
               </Reveal>
             </div>
           </div>
 
-          <div className="mt-10">
-            <ProcessTimeline steps={STEPS} />
+          <div className="mt-12">
+            <ScrollSteps steps={STEPS} />
           </div>
         </Container>
       </section>

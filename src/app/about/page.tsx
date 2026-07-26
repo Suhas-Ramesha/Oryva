@@ -137,23 +137,33 @@ export default function AboutPage() {
 
       <section className="border-t border-hairline bg-paper-2 py-14 sm:py-20">
         <Container>
-          <Reveal>
-            <Eyebrow>What Matters to Us</Eyebrow>
-          </Reveal>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            {MATTERS.map((phrase, i) => (
-              <Reveal key={phrase} delay={0.06 + i * 0.05}>
-                <div className="flex h-full items-start gap-3 rounded-2xl border border-hairline bg-paper p-5">
-                  <span
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-signal"
-                    aria-hidden
-                  />
-                  <p className="font-display text-lg leading-snug text-ink sm:text-xl">
-                    {phrase}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="grid gap-8 md:grid-cols-12 md:gap-10">
+            <Reveal className="md:col-span-4">
+              <Eyebrow>What Matters to Us</Eyebrow>
+              <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
+                The standards we hold.
+              </h2>
+            </Reveal>
+            <div className="md:col-span-8">
+              <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+                {MATTERS.map((phrase, i) => (
+                  <Reveal key={phrase} delay={0.06 + i * 0.08}>
+                    <div>
+                      <span className="font-label text-xs font-medium tracking-[0.24em] text-signal">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="mt-3 font-display text-xl leading-snug text-ink sm:text-2xl">
+                        {phrase}
+                      </p>
+                      <span
+                        aria-hidden
+                        className="mt-4 block h-px w-12 bg-gradient-to-r from-brand to-transparent"
+                      />
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
       </section>
