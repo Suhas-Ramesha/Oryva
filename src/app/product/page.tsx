@@ -7,14 +7,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { NumberedStep } from "@/components/ui/numbered-step";
-import { ProductMockup } from "@/components/ui/product-mockup";
 import { WaitlistForm } from "@/components/forms/waitlist-form";
 import { Magnetic } from "@/components/ui/magnetic";
 
 export const metadata: Metadata = {
   title: "Product",
   description:
-    "ORYVA-AI is building an intelligent career platform for people who want to understand their options without being reduced to a single score, role, or checklist.",
+    "ORYVA AI is building an intelligent career platform for people who want to understand their options without being reduced to a single score, role, or checklist.",
 };
 
 const STEPS = [
@@ -31,7 +30,7 @@ const STEPS = [
   {
     index: "03",
     title: "Turn insight into next moves",
-    body: "Then, it helps turn those connections into practical next moves — areas to explore, capabilities to develop, and opportunities worth considering.",
+    body: "Then, it helps turn those connections into practical next moves, including areas to explore, capabilities to develop, and opportunities worth considering.",
   },
 ];
 
@@ -41,8 +40,8 @@ export default function ProductPage() {
       <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16">
         <div className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]" />
 
-        <Container className="relative grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
-          <div>
+        <Container className="relative">
+          <div className="max-w-6xl">
             <Reveal>
               <div className="flex items-center gap-3">
                 <Eyebrow>The Product</Eyebrow>
@@ -50,13 +49,18 @@ export default function ProductPage() {
               </div>
             </Reveal>
             <Reveal delay={0.06}>
-              <h1 className="mt-5 font-display text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl md:text-7xl">
-                A career is not a straight line. Your guidance should not be either.
+              <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-[4rem]">
+                <span className="lg:block lg:whitespace-nowrap">
+                  A career is not a straight line.
+                </span>{" "}
+                <span className="lg:block lg:whitespace-nowrap">
+                  Your guidance should not be either.
+                </span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
-                ORYVA-AI is building an intelligent career platform for people who want
+                ORYVA AI is building an intelligent career platform for people who want
                 to understand their options without being reduced to a single score,
                 role, or checklist.
               </p>
@@ -82,14 +86,6 @@ export default function ProductPage() {
               </div>
             </Reveal>
           </div>
-
-          <Reveal delay={0.14}>
-            <div className="flex justify-center">
-              <div className="w-full max-w-sm">
-                <ProductMockup />
-              </div>
-            </div>
-          </Reveal>
         </Container>
       </section>
 
@@ -111,7 +107,7 @@ export default function ProductPage() {
               </p>
               <p className="text-pretty leading-relaxed text-muted">
                 Our product is being shaped to make that process feel more personal, more
-                connected, and less overwhelming — while keeping details flexible as it
+                connected, and less overwhelming while keeping details flexible as it
                 evolves. The direction is clear: intelligent without feeling impersonal,
                 ambitious without becoming overwhelming, and useful from the first
                 meaningful interaction.

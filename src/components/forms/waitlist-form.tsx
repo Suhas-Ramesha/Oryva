@@ -34,7 +34,7 @@ export function WaitlistForm() {
     return (
       <div className="flex items-center justify-center gap-2 rounded-xl border border-hairline bg-brand-dim px-6 py-4 text-sm text-ink">
         <CheckCircle2 className="h-4 w-4 text-brand-bright" aria-hidden />
-        Thanks — we&apos;ll notify you at launch.
+        Thanks. We&apos;ll notify you at launch.
       </div>
     );
   }

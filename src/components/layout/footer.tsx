@@ -27,10 +27,10 @@ export function Footer() {
               href="/"
               className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-ink"
             >
-              ORYVA<span className="text-brand">-AI</span>
+              ORYVA <span className="text-brand-bright">AI</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              A product company in motion — building intelligent products and a
+              A product company in motion, building intelligent products and a
               community for people who want to make, test, and grow with technology.
             </p>
             <div className="mt-6 flex items-center gap-3">
@@ -74,8 +74,8 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-muted">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-muted-2" aria-hidden />
-                <a href="mailto:contact@oryva-ai.com" className="hover:text-ink">
-                  contact@oryva-ai.com
+                <a href="mailto:contact@oryva.com" className="hover:text-ink">
+                  contact@oryva.com
                 </a>
               </li>
             </ul>
@@ -85,7 +85,7 @@ export function Footer() {
 
       <div className="border-t border-hairline">
         <Container className="flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted-2 md:flex-row">
-          <p>© {year} ORYVA-AI. All rights reserved.</p>
+          <p>© {year} ORYVA AI. All rights reserved.</p>
           <p className="font-[family-name:var(--font-label)] uppercase tracking-[0.15em]">
             Ideas, made useful.
           </p>

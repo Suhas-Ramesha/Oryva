@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "verify:copy": "node scripts/verify-visible-copy.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",

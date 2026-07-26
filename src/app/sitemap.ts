@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://www.oryva-ai.com";
+const BASE_URL = "https://www.oryva.com";
 const ROUTES = ["", "/about", "/forge", "/product", "/how-it-works", "/contact"];
 
 export default function sitemap(): MetadataRoute.Sitemap {

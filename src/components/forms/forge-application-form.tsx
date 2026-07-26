@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion, AnimatePresence } from "framer-motion";
@@ -61,13 +61,20 @@ const TRACK_COPY: Record<Track, { motivationLabel: string }> = {
   "Signal-to-Ship": { motivationLabel: "What signal are you bringing? (optional)" },
 };
 
+const TRACK_LABELS: Record<Track, string> = {
+  Workshop: "Workshop",
+  Mentorship: "Mentorship",
+  Fellowship: "Fellowship",
+  "Signal-to-Ship": "Signal to Ship",
+};
+
 export function ForgeApplicationForm({ defaultTrack = "Workshop" }: { defaultTrack?: Track }) {
   const [status, setStatus] = React.useState<"idle" | "submitting" | "success">("idle");
 
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     setValue,
     formState: { errors },
   } = useForm<FormValues>({
@@ -75,7 +82,7 @@ export function ForgeApplicationForm({ defaultTrack = "Workshop" }: { defaultTra
     defaultValues: { track: defaultTrack },
   });
 
-  const track = watch("track");
+  const track = useWatch({ control, name: "track" });
 
   // Preselect via custom event dispatched from the track "Apply" buttons.
   React.useEffect(() => {
@@ -115,7 +122,7 @@ export function ForgeApplicationForm({ defaultTrack = "Workshop" }: { defaultTra
           Application received.
         </h3>
         <p className="max-w-sm leading-relaxed text-muted">
-          Thanks for applying to ORYVA FORGE — {track}. We&apos;ll be in touch by
+          Thanks for applying to ORYVA FORGE, {TRACK_LABELS[track]}. We&apos;ll be in touch by
           email with next steps.
         </p>
       </div>
@@ -137,7 +144,7 @@ export function ForgeApplicationForm({ defaultTrack = "Workshop" }: { defaultTra
         <Select id="track" {...register("track")}>
           {TRACKS.map((t) => (
             <option key={t} value={t}>
-              {t}
+              {TRACK_LABELS[t]}
             </option>
           ))}
         </Select>

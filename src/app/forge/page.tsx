@@ -11,7 +11,7 @@ import { Magnetic } from "@/components/ui/magnetic";
 export const metadata: Metadata = {
   title: "ORYVA FORGE",
   description:
-    "ORYVA FORGE is a builder program for people who learn best by getting their hands on the work — workshops, mentorship, fellowships, and the Signal-to-Ship hackathon.",
+    "ORYVA FORGE is a builder program for people who learn best by getting their hands on the work through workshops, mentorship, fellowships, and the Signal to Ship hackathon.",
 };
 
 const STEPS = [
@@ -28,17 +28,17 @@ const STEPS = [
   {
     index: "03",
     title: "Build the proof",
-    body: "The goal is not a perfect product or a beautiful set of slides. The goal is a working proof — something another person can see, touch, try, or respond to before time runs out.",
+    body: "The goal is not a perfect product or a beautiful set of slides. The goal is a working proof, something another person can see, touch, try, or respond to before time runs out.",
   },
   {
     index: "04",
     title: "Show the learning",
-    body: "Teams share what they made, why they made it, and what changed when they tested the idea. We reward usefulness, courage, clarity, and smart choices — not just polish.",
+    body: "Teams share what they made, why they made it, and what changed when they tested the idea. We reward usefulness, courage, clarity, and smart choices, not just polish.",
   },
   {
     index: "05",
     title: "Keep the signal alive",
-    body: "Strong projects do not have to end when the event does. Selected teams can be invited to keep developing through follow-up critique, mentorship, or a future FORGE pathway.",
+    body: "Strong projects do not have to end when the event does. Selected teams can be invited to keep developing through continued critique, mentorship, or a future FORGE pathway.",
   },
 ];
 
@@ -97,7 +97,7 @@ export default function ForgePage() {
             </Reveal>
             <Reveal delay={0.08} className="md:col-span-8 space-y-4">
               <p className="text-pretty text-lg leading-relaxed text-ink-soft">
-                Some people arrive with a half-formed idea. Some arrive with a project
+                Some people arrive with an early stage idea. Some arrive with a project
                 that has stopped moving. Some simply want to understand how intelligent
                 products are made.
               </p>
@@ -126,14 +126,14 @@ export default function ForgePage() {
               <Reveal>
                 <Eyebrow>The FORGE Hackathon</Eyebrow>
                 <h2 className="mt-4 font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl">
-                  Signal-to-Ship
+                  Signal to Ship
                 </h2>
               </Reveal>
             </div>
             <div className="md:col-span-7">
               <Reveal delay={0.08}>
                 <p className="text-pretty text-lg leading-relaxed text-ink-soft">
-                  Signal-to-Ship is ORYVA FORGE&apos;s own kind of hackathon. Instead of
+                  Signal to Ship is ORYVA FORGE&apos;s own kind of hackathon. Instead of
                   beginning with a generic theme, every team begins with a signal:
                   something they have noticed in the real world that feels broken,
                   overlooked, frustrating, or full of possibility.
@@ -177,7 +177,7 @@ export default function ForgePage() {
                 Apply to ORYVA FORGE.
               </h2>
               <p className="mt-4 text-pretty leading-relaxed text-muted">
-                Pick your track below — the form adapts to what we need to know for each
+                Pick your track below. The form adapts to what we need to know for each
                 one.
               </p>
             </div>

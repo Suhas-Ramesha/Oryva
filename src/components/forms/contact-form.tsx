@@ -48,7 +48,7 @@ export function ContactForm() {
           Message sent.
         </h3>
         <p className="max-w-sm text-sm leading-relaxed text-muted">
-          Thanks for reaching out — we&apos;ll get back to you as soon as we can.
+          Thanks for reaching out. We&apos;ll get back to you as soon as we can.
         </p>
       </div>
     );

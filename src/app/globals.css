@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* warm editorial light palette */
-  --paper: #f7f4ed;
-  --paper-2: #fffdf8;
-  --paper-3: #f0ece1;
-  --ink: #17130e;
-  --ink-soft: #3a342b;
-  --muted: #6e6559;
-  --muted-2: #675e50; /* darkened for AA on paper/paper-3 small text */
-  --hairline: #e6dfd1;
-  --hairline-strong: rgba(23, 19, 14, 0.14);
-  --brand: #12463a; /* pine */
-  --brand-bright: #1c6b57;
-  --brand-dim: rgba(18, 70, 58, 0.08);
-  --signal: #c24e22; /* terracotta — AA with white button text (4.5:1) */
-  --signal-bright: #d2603a;
-  --signal-soft: rgba(194, 78, 34, 0.12);
+  /* dark blue palette from the client-approved reference */
+  --paper: #08090c;
+  --paper-2: #10131a;
+  --paper-3: #0c0e13;
+  --ink: #f2f4f8;
+  --ink-soft: #d4d9e3;
+  --muted: #99a1b3;
+  --muted-2: #8992a5;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.14);
+  --field-border: #5f6878;
+  --brand: #3e7bfa;
+  --brand-bright: #6ea8ff;
+  --brand-dim: rgba(62, 123, 250, 0.12);
+  --signal: #6ea8ff;
+  --signal-bright: #8ebcff;
+  --signal-soft: rgba(62, 123, 250, 0.16);
 }
 
 @theme inline {
@@ -29,6 +30,7 @@
   --color-muted-2: var(--muted-2);
   --color-hairline: var(--hairline);
   --color-hairline-strong: var(--hairline-strong);
+  --color-field-border: var(--field-border);
   --color-brand: var(--brand);
   --color-brand-bright: var(--brand-bright);
   --color-brand-dim: var(--brand-dim);
@@ -56,6 +58,7 @@
 }
 
 html {
+  color-scheme: dark;
   scroll-behavior: smooth;
 }
 
@@ -68,14 +71,16 @@ body {
 }
 
 ::selection {
-  background: var(--signal);
-  color: var(--paper-2);
+  background: var(--brand);
+  color: var(--paper);
 }
 
-/* editorial dotted-grid backdrop */
+/* subtle technical grid from the approved dark visual direction */
 .bg-grid {
-  background-image: radial-gradient(rgba(23, 19, 14, 0.06) 1px, transparent 1px);
-  background-size: 22px 22px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 
 /* soft paper-to-transparent fade, used to blend section edges */

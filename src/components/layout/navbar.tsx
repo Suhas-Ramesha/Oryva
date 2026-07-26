@@ -49,7 +49,7 @@ export function Navbar() {
           href="/"
           className="font-display text-xl font-semibold tracking-tight text-ink"
         >
-          ORYVA<span className="text-brand">-AI</span>
+          ORYVA <span className="text-brand-bright">AI</span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">

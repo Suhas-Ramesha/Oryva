@@ -12,14 +12,14 @@ import { Magnetic } from "@/components/ui/magnetic";
 export const metadata: Metadata = {
   title: "How It Works",
   description:
-    "How ORYVA-AI thinks about every product we build — from the first human insight to a living product in the world.",
+    "How ORYVA AI thinks about every product we build, from the first human insight to a living product in the world.",
 };
 
 const STEPS = [
   {
     index: "01",
     title: "Notice the real signal",
-    body: "Every ORYVA-AI product begins with close attention. We look for the gaps people live with, the decisions that feel unclear, and the everyday moments where a better tool could create genuine momentum.",
+    body: "Every ORYVA AI product begins with close attention. We look for the gaps people live with, the decisions that feel unclear, and the everyday moments where a better tool could create genuine momentum.",
   },
   {
     index: "02",
@@ -63,25 +63,13 @@ export default function HowItWorksPage() {
                 From a real idea to a product people return to.
               </h1>
             </Reveal>
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 lg:self-center">
               <Reveal delay={0.12}>
                 <p className="text-pretty text-lg leading-relaxed text-ink-soft lg:border-l lg:border-hairline lg:pl-6">
-                  It shows how ORYVA-AI thinks about every product we build now and in
-                  the future — from the first human insight to a living product in the
+                  It shows how ORYVA AI thinks about every product we build now and in
+                  the future, from the first human insight to a living product in the
                   world.
                 </p>
-              </Reveal>
-              <Reveal delay={0.18}>
-                <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:pl-6">
-                  {STEPS.map((step) => (
-                    <li key={step.index} className="flex items-baseline gap-2.5">
-                      <span className="font-label text-xs tracking-[0.2em] text-signal">
-                        {step.index}
-                      </span>
-                      <span className="text-sm text-ink-soft">{step.title}</span>
-                    </li>
-                  ))}
-                </ul>
               </Reveal>
             </div>
           </div>
@@ -92,7 +80,7 @@ export default function HowItWorksPage() {
         <Container>
           <div className="grid gap-5 md:grid-cols-12 md:items-start md:gap-8">
             <Reveal className="md:col-span-4">
-              <Eyebrow>The ORYVA-AI product approach</Eyebrow>
+              <Eyebrow>The ORYVA AI product approach</Eyebrow>
             </Reveal>
             <Reveal delay={0.08} className="md:col-span-8">
               <p className="font-display text-pretty text-xl leading-snug text-ink sm:text-2xl md:text-[1.75rem] md:leading-[1.25]">
@@ -121,7 +109,7 @@ export default function HowItWorksPage() {
             <div className="md:col-span-8">
               <Reveal delay={0.08}>
                 <p className="text-pretty text-lg leading-relaxed text-ink-soft">
-                  The same path runs through everything we make — a discipline that
+                  The same path runs through everything we make. It is a discipline that
                   turns a human insight into a product worth returning to.
                 </p>
               </Reveal>
@@ -149,7 +137,7 @@ export default function HowItWorksPage() {
             <Reveal delay={0.08} className="md:col-span-8">
               <p className="text-pretty text-lg leading-relaxed text-ink-soft sm:text-xl">
                 The career platform is the first expression of this approach, not the
-                only one. Over time, ORYVA-AI will create products wherever thoughtful
+                only one. Over time, ORYVA AI will create products wherever thoughtful
                 intelligence can help people understand more, move forward with
                 confidence, and turn potential into progress.
               </p>
@@ -165,7 +153,7 @@ export default function HowItWorksPage() {
           </Reveal>
           <Reveal delay={0.08}>
             <PullQuote className="mt-5 max-w-3xl">
-              Every future ORYVA-AI product should feel clear enough to begin with,
+              Every future ORYVA AI product should feel clear enough to begin with,
               useful enough to return to, and intelligent enough to grow with the person
               using it.
             </PullQuote>

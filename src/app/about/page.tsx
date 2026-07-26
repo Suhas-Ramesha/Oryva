@@ -12,7 +12,7 @@ import { Magnetic } from "@/components/ui/magnetic";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The belief behind ORYVA-AI, and how we turn intelligent tools into real, useful progress for the people who use them.",
+    "The belief behind ORYVA AI, and how we turn intelligent tools into real, useful progress for the people who use them.",
 };
 
 const MATTERS = [
@@ -52,7 +52,7 @@ export default function AboutPage() {
         <div className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]" />
         <Container className="relative">
           <Reveal>
-            <Eyebrow>About ORYVA-AI</Eyebrow>
+            <Eyebrow>About ORYVA AI</Eyebrow>
           </Reveal>
           <div className="mt-6 grid gap-x-8 gap-y-5 lg:grid-cols-12 lg:items-end">
             <Reveal delay={0.06} className="lg:col-span-7">
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={0.12} className="lg:col-span-5">
               <p className="text-pretty text-lg leading-relaxed text-ink-soft lg:border-l lg:border-hairline lg:pl-6">
-                ORYVA-AI began with a simple belief: technology should not make people
+                ORYVA AI began with a simple belief: technology should not make people
                 feel smaller. It should help them see more clearly what they can do
                 next.
               </p>
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 <Eyebrow>Mission</Eyebrow>
                 <p className="mt-4 text-pretty leading-relaxed text-ink-soft">
                   To build intelligent products that help people move from uncertainty to
-                  action — and to create spaces where more people can learn to build with
+                  action, and to create spaces where more people can learn to build with
                   confidence.
                 </p>
               </Card>
@@ -165,7 +165,7 @@ export default function AboutPage() {
       <section className="py-14 sm:py-20">
         <Container>
           <Reveal>
-            <Eyebrow>Why ORYVA-AI</Eyebrow>
+            <Eyebrow>Why ORYVA AI</Eyebrow>
             <h2 className="mt-4 max-w-2xl font-display text-3xl leading-tight text-ink sm:text-4xl">
               How we work.
             </h2>

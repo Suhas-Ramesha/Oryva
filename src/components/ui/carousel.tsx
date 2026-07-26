@@ -2,7 +2,7 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -15,12 +15,12 @@ export function Carousel({
   className?: string;
   ariaLabel?: string;
 }) {
-  const autoplay = useRef(
+  const [autoplay] = useState(() =>
     Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })
   );
   const [emblaRef, embla] = useEmblaCarousel(
     { loop: true, align: "center" },
-    [autoplay.current]
+    [autoplay]
   );
   const [selected, setSelected] = useState(0);
 
@@ -42,8 +42,8 @@ export function Carousel({
       role="region"
       aria-roledescription="carousel"
       aria-label={ariaLabel}
-      onFocusCapture={() => autoplay.current.stop()}
-      onBlurCapture={() => autoplay.current.play()}
+      onFocusCapture={() => autoplay.stop()}
+      onBlurCapture={() => autoplay.play()}
     >
       <div className="relative">
         <div className="overflow-hidden rounded-3xl" ref={emblaRef}>
@@ -66,7 +66,7 @@ export function Carousel({
           type="button"
           aria-label="Previous slide"
           onClick={() => embla?.scrollPrev()}
-          className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-hairline-strong bg-paper/95 p-2 text-ink shadow-sm backdrop-blur-sm transition-colors hover:bg-paper-2"
+          className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-hairline-strong bg-paper/90 p-2 text-ink shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-colors hover:border-brand/60 hover:bg-paper-2 hover:text-brand-bright"
         >
           <ChevronLeft size={18} aria-hidden />
         </button>
@@ -74,7 +74,7 @@ export function Carousel({
           type="button"
           aria-label="Next slide"
           onClick={() => embla?.scrollNext()}
-          className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-hairline-strong bg-paper/95 p-2 text-ink shadow-sm backdrop-blur-sm transition-colors hover:bg-paper-2"
+          className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-hairline-strong bg-paper/90 p-2 text-ink shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-colors hover:border-brand/60 hover:bg-paper-2 hover:text-brand-bright"
         >
           <ChevronRight size={18} aria-hidden />
         </button>
@@ -86,7 +86,7 @@ export function Carousel({
             key={i}
             type="button"
             aria-label={`Go to slide ${i + 1}`}
-            aria-current={selected === i}
+            aria-current={selected === i ? "true" : undefined}
             onClick={() => scrollTo(i)}
             className={cn(
               "h-2 rounded-full transition-all",

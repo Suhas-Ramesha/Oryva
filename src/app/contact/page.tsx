@@ -9,7 +9,7 @@ import { SocialIcon, SOCIALS } from "@/components/ui/social-icon";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with ORYVA-AI — about the product, ORYVA FORGE, a partnership, or simply to say hello.",
+    "Get in touch with ORYVA AI about the product, ORYVA FORGE, a partnership, or simply to say hello.",
 };
 
 export default function ContactPage() {
@@ -40,11 +40,11 @@ export default function ContactPage() {
                   Email us
                 </div>
                 <a
-                  href="mailto:contact@oryva-ai.com"
+                  href="mailto:contact@oryva.com"
                   className="mt-3 inline-flex items-center gap-3 text-lg text-ink transition-colors hover:text-brand"
                 >
                   <Mail className="h-5 w-5 text-brand" aria-hidden />
-                  contact@oryva-ai.com
+                  contact@oryva.com
                 </a>
 
                 <div className="mt-7 flex items-center gap-3">

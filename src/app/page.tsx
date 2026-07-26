@@ -3,10 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { PullQuote } from "@/components/ui/pull-quote";
-import { Magnetic } from "@/components/ui/magnetic";
 
 const SIDES = [
   {
@@ -19,7 +17,7 @@ const SIDES = [
   {
     label: "ORYVA FORGE",
     title: "For the builders",
-    body: "ORYVA FORGE gives students, developers, designers, and first-time builders a place to get hands-on with ideas instead of only reading about them.",
+    body: "ORYVA FORGE gives students, developers, designers, and new builders a place to work directly with ideas instead of only reading about them.",
     href: "/forge",
     cta: "Enter ORYVA FORGE",
   },
@@ -42,7 +40,7 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.08} className="md:col-span-8">
               <p className="text-pretty text-lg leading-relaxed text-ink-soft">
-                We are creating an AI-powered career platform and building a community
+                We are creating a career platform powered by AI and building a community
                 for people who want to make, test, and grow with technology. The two
                 sides belong together: better products come from staying close to
                 curious people and real questions.
@@ -69,8 +67,8 @@ export default function HomePage() {
                 <p className="text-pretty text-lg leading-relaxed text-ink-soft">
                   Our first product is being designed for people who are trying to make
                   sense of their next move. Alongside it, ORYVA FORGE gives students,
-                  developers, designers, and first-time builders a place to get
-                  hands-on with ideas instead of only reading about them.
+                  developers, designers, and new builders a place to work directly
+                  with ideas instead of only reading about them.
                 </p>
               </Reveal>
             </div>
@@ -112,20 +110,6 @@ export default function HomePage() {
               Real ideas deserve more than a good presentation. They deserve a chance to
               become useful.
             </PullQuote>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Magnetic>
-                <Button size="lg" asChild>
-                  <Link href="/product">Explore Our Product</Link>
-                </Button>
-              </Magnetic>
-              <Magnetic>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/forge">Discover ORYVA FORGE</Link>
-                </Button>
-              </Magnetic>
-            </div>
           </Reveal>
         </Container>
       </section>

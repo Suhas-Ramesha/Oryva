@@ -16,7 +16,7 @@ export function ProductMockup() {
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-        className="absolute inset-5 rounded-2xl border border-hairline bg-paper-2 shadow-[0_20px_50px_-30px_rgba(23,19,14,0.35)]"
+        className="absolute inset-5 rounded-2xl border border-hairline bg-paper-2 shadow-[0_24px_64px_-28px_rgba(0,0,0,0.75)]"
       />
 
       <div className="absolute inset-5 flex flex-col rounded-2xl p-6">
@@ -39,7 +39,7 @@ export function ProductMockup() {
               whileInView={{ height: `${h}%` }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full rounded-full bg-gradient-to-t from-brand/30 to-brand"
+              className="w-full rounded-full bg-gradient-to-t from-brand/25 via-brand to-brand-bright"
             />
           ))}
         </div>

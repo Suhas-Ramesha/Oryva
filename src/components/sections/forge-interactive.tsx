@@ -52,7 +52,7 @@ export function ForgeInteractive() {
             <Magnetic className="mt-8 inline-block w-fit" strength={0.25}>
               <Button variant="outline" onClick={() => selectForgeTrack(track)}>
                 <span className="flex items-center gap-2">
-                  Apply — {title}
+                  Apply for {title}
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden />
                 </span>
               </Button>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
@@ -14,15 +14,11 @@ function SlideShell({
   label,
   title,
   body,
-  href,
-  cta,
   children,
 }: {
   label: string;
   title: string;
   body: string;
-  href: string;
-  cta: string;
   children: React.ReactNode;
 }) {
   return (
@@ -35,13 +31,6 @@ function SlideShell({
         <p className="mt-3 max-w-md text-pretty leading-relaxed text-muted">{body}</p>
       </div>
       <div className="flex flex-1 items-center justify-center py-1">{children}</div>
-      <Link
-        href={href}
-        className="inline-flex items-center gap-1.5 font-label text-[13px] font-medium tracking-tight text-brand hover:text-brand-bright"
-      >
-        {cta}
-        <ArrowUpRight className="h-4 w-4" aria-hidden />
-      </Link>
     </div>
   );
 }
@@ -52,8 +41,6 @@ const SLIDES = [
     label="The Product"
     title="An intelligent career platform"
     body="Understand your options without being reduced to a single score, role, or checklist."
-    href="/product"
-    cta="Explore the product"
   >
     <div className="w-full max-w-[15rem]">
       <ProductMockup />
@@ -64,8 +51,6 @@ const SLIDES = [
     label="ORYVA FORGE"
     title="Come with a question. Leave with proof."
     body="A builder program for people who learn best by getting their hands on the work."
-    href="/forge"
-    cta="Enter ORYVA FORGE"
   >
     <div className="grid w-full max-w-xs grid-cols-1 gap-3">
       {["Workshops", "Mentorship", "Fellowships"].map((t) => (
@@ -83,9 +68,7 @@ const SLIDES = [
     key="approach"
     label="How We Build"
     title="From a real idea to a product people return to."
-    body="We begin with a real situation — then shape the product around what makes a meaningful difference."
-    href="/how-it-works"
-    cta="See how it works"
+    body="We begin with a real situation. Then we shape the product around what makes a meaningful difference."
   >
     <ol className="w-full max-w-xs space-y-3">
       {[
@@ -108,9 +91,9 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]" />
 
       <Container className="relative grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
-        <div>
+        <div className="min-w-0">
           <Reveal>
-            <Eyebrow>ORYVA-AI</Eyebrow>
+            <Eyebrow>ORYVA AI</Eyebrow>
           </Reveal>
           <Reveal delay={0.06}>
             <h1 className="mt-5 max-w-2xl font-display text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
@@ -119,8 +102,8 @@ export function Hero() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-              ORYVA-AI is where thoughtful technology, practical design, and human
-              ambition meet — building intelligent products for moments when people need
+              ORYVA AI is where thoughtful technology, practical design, and human
+              ambition meet. We build intelligent products for moments when people need
               more clarity, confidence, and a better way forward.
             </p>
           </Reveal>
@@ -146,7 +129,7 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.16}>
+        <Reveal delay={0.16} className="min-w-0">
           <Carousel slides={SLIDES} ariaLabel="What we are building" />
         </Reveal>
       </Container>
