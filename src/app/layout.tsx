@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Space_Grotesk, Fraunces } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { IntroSequence } from "@/components/layout/intro-sequence";
 import { LenisProvider } from "@/components/providers/lenis-provider";
 import { SOCIALS } from "@/components/ui/social-icon";
 import "./globals.css";
@@ -12,7 +13,7 @@ const organizationSchema = {
   name: "ORYVA AI",
   url: "https://www.oryva.com",
   logo: "https://www.oryva.com/opengraph-image",
-  email: "contact@oryva.com",
+  email: "contact@oryvaai.com",
   description:
     "ORYVA AI builds intelligent products and runs ORYVA FORGE, a builder program for the moments when people need more clarity, more confidence, and a better way forward.",
   sameAs: SOCIALS.map((s) => s.href),
@@ -72,9 +73,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${fraunces.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{document.documentElement.dataset.intro=sessionStorage.getItem("oryva:intro-seen")==="true"?"skip":"play"}catch{document.documentElement.dataset.intro="play"}`,
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col font-sans">
+        <IntroSequence />
         <script
           type="application/ld+json"
           // Organization schema intentionally has no telephone field.

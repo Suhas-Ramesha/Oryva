@@ -40,11 +40,11 @@ export default function ContactPage() {
                   Email us
                 </div>
                 <a
-                  href="mailto:contact@oryva.com"
+                  href="mailto:contact@oryvaai.com"
                   className="mt-3 inline-flex items-center gap-3 text-lg text-ink transition-colors hover:text-brand"
                 >
                   <Mail className="h-5 w-5 text-brand" aria-hidden />
-                  contact@oryva.com
+                  contact@oryvaai.com
                 </a>
 
                 <div className="mt-7 flex items-center gap-3">

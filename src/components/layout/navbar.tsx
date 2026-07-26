@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -47,9 +48,9 @@ export function Navbar() {
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-6 py-4 md:px-8">
         <Link
           href="/"
-          className="font-display text-xl font-semibold tracking-tight text-ink"
+          className="inline-flex items-center"
         >
-          ORYVA <span className="text-brand-bright">AI</span>
+          <BrandLogo priority className="w-[7.25rem]" />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">

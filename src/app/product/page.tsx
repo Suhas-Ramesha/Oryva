@@ -6,9 +6,9 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import { NumberedStep } from "@/components/ui/numbered-step";
 import { WaitlistForm } from "@/components/forms/waitlist-form";
 import { Magnetic } from "@/components/ui/magnetic";
+import { ProductJourney } from "@/components/sections/product-journey";
 
 export const metadata: Metadata = {
   title: "Product",
@@ -66,7 +66,7 @@ export default function ProductPage() {
               </p>
             </Reveal>
             <Reveal delay={0.18}>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8">
                 <Magnetic>
                   <Button size="lg" asChild>
                     <Link href="#waitlist" className="group flex items-center gap-2">
@@ -76,11 +76,6 @@ export default function ProductPage() {
                         aria-hidden
                       />
                     </Link>
-                  </Button>
-                </Magnetic>
-                <Magnetic>
-                  <Button size="lg" variant="outline" asChild>
-                    <Link href="/forge">Discover ORYVA FORGE</Link>
                   </Button>
                 </Magnetic>
               </div>
@@ -93,24 +88,18 @@ export default function ProductPage() {
         <Container>
           <div className="grid gap-5 md:grid-cols-12 md:items-start md:gap-8">
             <Reveal className="md:col-span-4">
-              <Eyebrow>The idea behind the product</Eyebrow>
+              <Eyebrow>The problem</Eyebrow>
               <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
                 Incomplete information, clearer paths.
               </h2>
             </Reveal>
-            <Reveal delay={0.08} className="md:col-span-8 space-y-4">
+            <Reveal delay={0.08} className="md:col-span-8">
               <p className="text-pretty text-lg leading-relaxed text-ink-soft">
                 People often make career decisions with incomplete information. They know
                 they want change, but cannot always see where their strengths fit, which
                 skills will matter next, or how to turn curiosity into a realistic
-                direction.
-              </p>
-              <p className="text-pretty leading-relaxed text-muted">
-                Our product is being shaped to make that process feel more personal, more
-                connected, and less overwhelming while keeping details flexible as it
-                evolves. The direction is clear: intelligent without feeling impersonal,
-                ambitious without becoming overwhelming, and useful from the first
-                meaningful interaction.
+                direction. Our product is being shaped to make that process feel more
+                personal, more connected, and less overwhelming.
               </p>
             </Reveal>
           </div>
@@ -121,7 +110,7 @@ export default function ProductPage() {
         <Container className="grid gap-6 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-4">
             <Reveal>
-              <Eyebrow>What it is being built to support</Eyebrow>
+              <Eyebrow>What it supports</Eyebrow>
               <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
                 Better context, not a fixed answer.
               </h2>
@@ -132,9 +121,8 @@ export default function ProductPage() {
               <p className="text-pretty text-lg leading-relaxed text-ink-soft">
                 It will help people pause and reflect on where they are, surface
                 meaningful patterns in what they already know and do, and turn those
-                insights into a path they can keep refining. It is not about handing
-                someone one fixed answer. It is about helping them move forward with
-                better context.
+                insights into a path they can keep refining. The aim is not one fixed
+                answer. It is better context for the next useful step.
               </p>
             </Reveal>
           </div>
@@ -149,14 +137,8 @@ export default function ProductPage() {
               From what you carry to what you do next.
             </h2>
           </Reveal>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {STEPS.map((step, i) => (
-              <Reveal key={step.index} delay={0.06 + i * 0.06}>
-                <NumberedStep index={step.index} title={step.title}>
-                  {step.body}
-                </NumberedStep>
-              </Reveal>
-            ))}
+          <div className="mt-10">
+            <ProductJourney steps={STEPS} />
           </div>
         </Container>
       </section>

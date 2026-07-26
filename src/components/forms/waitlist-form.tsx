@@ -3,38 +3,33 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { CheckCircle2, Loader2, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
-const schema = z.object({
-  name: z.string().trim().optional(),
-  email: z.string().trim().email("Enter a valid email address"),
-  honeypot: z.string().max(0).optional(),
-});
-
-type FormValues = z.infer<typeof schema>;
+import { waitlistSchema, type WaitlistValues } from "@/lib/validation/waitlist";
+import { submitForm } from "@/lib/forms/submit-form";
 
 export function WaitlistForm() {
-  const [status, setStatus] = React.useState<"idle" | "submitting" | "success">("idle");
+  const [status, setStatus] = React.useState<"idle" | "submitting" | "success" | "error">(
+    "idle"
+  );
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({ resolver: zodResolver(schema) });
+  } = useForm<WaitlistValues>({ resolver: zodResolver(waitlistSchema) });
 
-  const onSubmit = async () => {
+  const onSubmit = async (values: WaitlistValues) => {
     setStatus("submitting");
-    await new Promise((resolve) => setTimeout(resolve, 700));
-    setStatus("success");
+    const result = await submitForm("/api/forms/waitlist", values);
+    setStatus(result.ok ? "success" : "error");
   };
 
   if (status === "success") {
     return (
       <div className="flex items-center justify-center gap-2 rounded-xl border border-hairline bg-brand-dim px-6 py-4 text-sm text-ink">
         <CheckCircle2 className="h-4 w-4 text-brand-bright" aria-hidden />
-        Thanks. We&apos;ll notify you at launch.
+        Thanks. We received your waitlist request and will notify you at launch.
       </div>
     );
   }
@@ -62,6 +57,11 @@ export function WaitlistForm() {
         </Button>
       </div>
       {errors.email && <p className="mt-2 text-xs text-signal">{errors.email.message}</p>}
+      {status === "error" && (
+        <p role="alert" className="mt-2 text-xs text-signal">
+          We could not save your request. Please try again.
+        </p>
+      )}
     </form>
   );
 }

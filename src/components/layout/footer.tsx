@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mail } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SocialIcon, SOCIALS } from "@/components/ui/social-icon";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 const QUICK_LINKS = [
   { label: "About", href: "/about" },
@@ -25,9 +26,9 @@ export function Footer() {
           <div className="max-w-sm">
             <Link
               href="/"
-              className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-ink"
+              className="inline-flex items-center"
             >
-              ORYVA <span className="text-brand-bright">AI</span>
+              <BrandLogo className="w-[7.25rem]" />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               A product company in motion, building intelligent products and a
@@ -74,8 +75,8 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-muted">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-muted-2" aria-hidden />
-                <a href="mailto:contact@oryva.com" className="hover:text-ink">
-                  contact@oryva.com
+                <a href="mailto:contact@oryvaai.com" className="hover:text-ink">
+                  contact@oryvaai.com
                 </a>
               </li>
             </ul>

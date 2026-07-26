@@ -39,8 +39,8 @@ const SLIDES = [
   <SlideShell
     key="product"
     label="The Product"
-    title="An intelligent career platform"
-    body="Understand your options without being reduced to a single score, role, or checklist."
+    title="Guidance for your next move"
+    body="A career platform shaped around context, connections, and realistic next steps."
   >
     <div className="w-full max-w-[15rem]">
       <ProductMockup />
@@ -49,8 +49,8 @@ const SLIDES = [
   <SlideShell
     key="forge"
     label="ORYVA FORGE"
-    title="Come with a question. Leave with proof."
-    body="A builder program for people who learn best by getting their hands on the work."
+    title="A place to make the idea real"
+    body="Workshops, mentorship, and fellowships for builders who learn by shipping proof."
   >
     <div className="grid w-full max-w-xs grid-cols-1 gap-3">
       {["Workshops", "Mentorship", "Fellowships"].map((t) => (
@@ -65,23 +65,19 @@ const SLIDES = [
     </div>
   </SlideShell>,
   <SlideShell
-    key="approach"
-    label="How We Build"
-    title="From a real idea to a product people return to."
-    body="We begin with a real situation. Then we shape the product around what makes a meaningful difference."
+    key="company"
+    label="The Company"
+    title="Products and builders, side by side"
+    body="We stay close to real questions so the work we ship keeps earning its place."
   >
-    <ol className="w-full max-w-xs space-y-3">
-      {[
-        ["01", "Notice the real signal"],
-        ["02", "Find the useful core"],
-        ["03", "Build the intelligence around it"],
-      ].map(([n, t]) => (
-        <li key={n} className="flex items-center gap-3">
-          <span className="font-label text-sm tracking-[0.2em] text-signal">{n}</span>
-          <span className="text-sm text-ink-soft">{t}</span>
-        </li>
-      ))}
-    </ol>
+    <div className="flex w-full max-w-xs flex-col gap-3 rounded-2xl border border-hairline bg-paper p-5">
+      <p className="font-display text-xl leading-snug text-ink">
+        Useful products grow from curious people.
+      </p>
+      <p className="text-sm leading-relaxed text-muted">
+        Explore the product, join FORGE, or talk with us about what you are building.
+      </p>
+    </div>
   </SlideShell>,
 ];
 

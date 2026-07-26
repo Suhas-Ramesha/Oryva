@@ -1,11 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { BookOpen, Users, Rocket, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { Magnetic } from "@/components/ui/magnetic";
-import { selectForgeTrack, type Track } from "@/components/forms/forge-application-form";
+import { getTrackSlug, type Track } from "@/lib/forge/tracks";
 
 const TRACKS: {
   title: string;
@@ -50,11 +51,13 @@ export function ForgeInteractive() {
               {description}
             </p>
             <Magnetic className="mt-8 inline-block w-fit" strength={0.25}>
-              <Button variant="outline" onClick={() => selectForgeTrack(track)}>
-                <span className="flex items-center gap-2">
-                  Apply for {title}
-                  <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-                </span>
+              <Button variant="outline" asChild>
+                <Link href={`/forge/apply?track=${getTrackSlug(track)}`}>
+                  <span className="flex items-center gap-2">
+                    Apply for {title}
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+                  </span>
+                </Link>
               </Button>
             </Magnetic>
           </Card>

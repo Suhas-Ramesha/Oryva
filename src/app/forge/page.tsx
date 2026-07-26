@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import { NumberedStep } from "@/components/ui/numbered-step";
 import { ForgeInteractive } from "@/components/sections/forge-interactive";
-import { ForgeApplicationForm } from "@/components/forms/forge-application-form";
 import { Magnetic } from "@/components/ui/magnetic";
+import { SprintArc } from "@/components/sections/sprint-arc";
+import { PullQuote } from "@/components/ui/pull-quote";
 
 export const metadata: Metadata = {
   title: "ORYVA FORGE",
@@ -70,15 +71,10 @@ export default function ForgePage() {
             </Reveal>
           </div>
           <Reveal delay={0.18}>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8">
               <Magnetic>
                 <Button size="lg" asChild>
-                  <a href="#apply">Enter ORYVA FORGE</a>
-                </Button>
-              </Magnetic>
-              <Magnetic>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="#apply-signal-to-ship">Bring Your Signal</a>
+                  <Link href="/forge/apply?track=signal-to-ship">Bring Your Signal</Link>
                 </Button>
               </Magnetic>
             </div>
@@ -142,51 +138,18 @@ export default function ForgePage() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {STEPS.map(({ index, title, body }, i) => (
-              <Reveal key={index} delay={0.05 + i * 0.05}>
-                <NumberedStep index={index} title={title} surface="paper">
-                  {body}
-                </NumberedStep>
-              </Reveal>
-            ))}
+          <div className="mt-10">
+            <SprintArc steps={STEPS} />
           </div>
-
-          <Reveal delay={0.08}>
-            <div className="mt-10">
-              <Magnetic>
-                <Button size="lg" asChild>
-                  <a href="#apply-signal-to-ship">Bring Your Signal</a>
-                </Button>
-              </Magnetic>
-            </div>
-          </Reveal>
         </Container>
       </section>
 
-      <section
-        id="apply"
-        className="scroll-mt-28 border-t border-hairline py-14 sm:py-20"
-      >
-        <Container>
-          <span id="apply-signal-to-ship" aria-hidden className="block scroll-mt-28" />
+      <section className="border-t border-hairline bg-paper-2 py-14 sm:py-16">
+        <Container className="flex justify-center text-center">
           <Reveal>
-            <div className="mx-auto max-w-2xl">
-              <Eyebrow>Application</Eyebrow>
-              <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
-                Apply to ORYVA FORGE.
-              </h2>
-              <p className="mt-4 text-pretty leading-relaxed text-muted">
-                Pick your track below. The form adapts to what we need to know for each
-                one.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <div className="mx-auto mt-8 max-w-2xl rounded-3xl border border-hairline bg-paper-2 p-8 md:p-10">
-              <ForgeApplicationForm />
-            </div>
+            <PullQuote className="max-w-3xl">
+              Bring a signal. Leave with proof worth continuing.
+            </PullQuote>
           </Reveal>
         </Container>
       </section>

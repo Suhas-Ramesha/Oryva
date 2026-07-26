@@ -10,14 +10,14 @@ const SIDES = [
   {
     label: "The Product",
     title: "For your next move",
-    body: "Our first product is being designed for people who are trying to make sense of their next move.",
+    body: "Meet the career platform being shaped around personal context and practical next steps.",
     href: "/product",
     cta: "Meet the product",
   },
   {
     label: "ORYVA FORGE",
     title: "For the builders",
-    body: "ORYVA FORGE gives students, developers, designers, and new builders a place to work directly with ideas instead of only reading about them.",
+    body: "Enter the builder program for workshops, mentorship, fellowships, and Signal to Ship.",
     href: "/forge",
     cta: "Enter ORYVA FORGE",
   },
@@ -28,7 +28,6 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* A little about us */}
       <section className="py-14 sm:py-20">
         <Container>
           <div className="grid gap-6 md:grid-cols-12 md:items-start md:gap-8">
@@ -40,39 +39,23 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.08} className="md:col-span-8">
               <p className="text-pretty text-lg leading-relaxed text-ink-soft">
-                We are creating a career platform powered by AI and building a community
-                for people who want to make, test, and grow with technology. The two
-                sides belong together: better products come from staying close to
-                curious people and real questions.
+                We build intelligent products and a community for people who want to
+                make, test, and grow with technology. Better products come from staying
+                close to curious people and real questions.
               </p>
             </Reveal>
           </div>
         </Container>
       </section>
 
-      {/* What we are building */}
       <section className="border-t border-hairline bg-paper-2 py-14 sm:py-20">
         <Container>
-          <div className="grid gap-6 md:grid-cols-12 md:gap-8">
-            <div className="md:col-span-4">
-              <Reveal>
-                <Eyebrow>What we are building</Eyebrow>
-                <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
-                  Two sides, one intent.
-                </h2>
-              </Reveal>
-            </div>
-            <div className="md:col-span-8">
-              <Reveal delay={0.08}>
-                <p className="text-pretty text-lg leading-relaxed text-ink-soft">
-                  Our first product is being designed for people who are trying to make
-                  sense of their next move. Alongside it, ORYVA FORGE gives students,
-                  developers, designers, and new builders a place to work directly
-                  with ideas instead of only reading about them.
-                </p>
-              </Reveal>
-            </div>
-          </div>
+          <Reveal>
+            <Eyebrow>Where to go next</Eyebrow>
+            <h2 className="mt-4 max-w-2xl font-display text-3xl leading-tight text-ink sm:text-4xl">
+              Choose the door that fits your next step.
+            </h2>
+          </Reveal>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {SIDES.map((side, i) => (
@@ -102,7 +85,6 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Brand-line closing band */}
       <section className="border-t border-hairline bg-paper-2 py-16 sm:py-20">
         <Container className="flex flex-col items-center text-center">
           <Reveal>

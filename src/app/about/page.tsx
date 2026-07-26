@@ -5,9 +5,9 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { PullQuote } from "@/components/ui/pull-quote";
-import { NumberedStep } from "@/components/ui/numbered-step";
 import { Card } from "@/components/ui/card";
 import { Magnetic } from "@/components/ui/magnetic";
+import { AboutPrinciples } from "@/components/sections/about-principles";
 
 export const metadata: Metadata = {
   title: "About",
@@ -22,24 +22,20 @@ const MATTERS = [
   "And community as a force that makes individual potential travel further.",
 ];
 
-const STEPS = [
+const PRINCIPLES = [
   {
-    index: "01",
     title: "Start with what is real",
     body: "Every good product starts with a real question. We look for the friction, uncertainty, or possibility behind it before we think about features.",
   },
   {
-    index: "02",
     title: "Make intelligence useful",
     body: "AI should feel like thoughtful support, not noise. We use it where it can bring context, perspective, and momentum to a person's next step.",
   },
   {
-    index: "03",
     title: "Keep builders close",
-    body: "ORYVA FORGE keeps us near the energy of people who are learning, experimenting, questioning, and building the future in their own way.",
+    body: "We stay near people who are learning, experimenting, questioning, and building in public, because that energy keeps our products honest.",
   },
   {
-    index: "04",
     title: "Grow through use",
     body: "A launch is not the end of the work. We listen, learn, improve, and keep making the experience more useful over time.",
   },
@@ -167,18 +163,12 @@ export default function AboutPage() {
           <Reveal>
             <Eyebrow>Why ORYVA AI</Eyebrow>
             <h2 className="mt-4 max-w-2xl font-display text-3xl leading-tight text-ink sm:text-4xl">
-              How we work.
+              Principles we return to.
             </h2>
           </Reveal>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {STEPS.map((step, i) => (
-              <Reveal key={step.index} delay={0.06 + i * 0.05}>
-                <NumberedStep index={step.index} title={step.title}>
-                  {step.body}
-                </NumberedStep>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.08}>
+            <AboutPrinciples className="mt-8" principles={PRINCIPLES} />
+          </Reveal>
         </Container>
       </section>
 

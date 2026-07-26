@@ -70,6 +70,23 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+html[data-intro="skip"] .intro-sequence {
+  display: none;
+}
+
+.brand-logo-gradient {
+  background: linear-gradient(
+    105deg,
+    #f4f7ff 5%,
+    #a8c8ff 34%,
+    #6ea8ff 58%,
+    #5d72d9 82%,
+    #dce7ff 100%
+  );
+  -webkit-mask: url("/oryva-logo.png") center / contain no-repeat;
+  mask: url("/oryva-logo.png") center / contain no-repeat;
+}
+
 ::selection {
   background: var(--brand);
   color: var(--paper);

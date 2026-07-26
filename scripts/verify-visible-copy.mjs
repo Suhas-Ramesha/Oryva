@@ -13,7 +13,9 @@ const pages = [
 
 const buildDirectory = join(process.cwd(), ".next", "server", "app");
 const dashPattern = /[–—]|\b[A-Za-z]+-[A-Za-z]+\b/g;
-const oldBrandPattern = /ORYVA-AI|contact@oryva-ai\.com/g;
+const oldBrandPattern = /ORYVA-AI|contact@oryva-ai\.com|contact@oryva\.com/g;
+const requiredEmail = "contact@oryvaai.com";
+const pagesRequiringEmail = new Set(["contact.html", "index.html"]);
 
 function decodeEntities(value) {
   return value
@@ -49,11 +51,15 @@ for (const page of pages) {
   const renderedText = extractRenderedText(html);
   const oldBrandMatches = html.match(oldBrandPattern) ?? [];
   const dashMatches = renderedText.match(dashPattern) ?? [];
+  const missingEmail =
+    pagesRequiringEmail.has(page) && !renderedText.includes(requiredEmail)
+      ? [`missing ${requiredEmail}`]
+      : [];
 
-  if (oldBrandMatches.length > 0 || dashMatches.length > 0) {
+  if (oldBrandMatches.length > 0 || dashMatches.length > 0 || missingEmail.length > 0) {
     failures.push({
       page,
-      matches: [...new Set([...oldBrandMatches, ...dashMatches])],
+      matches: [...new Set([...oldBrandMatches, ...dashMatches, ...missingEmail])],
     });
   }
 }
