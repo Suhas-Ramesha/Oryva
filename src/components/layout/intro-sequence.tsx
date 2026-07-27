@@ -69,8 +69,9 @@ export function IntroSequence() {
         className="relative"
         style={{ width: LOGO_WIDTH }}
       >
-        {/* logo materializes via a CSS animation so it always ends visible,
-            even if JS/framer never runs (reduced-motion, hydration stalls). */}
+        {/* logo draws in left-to-right via CSS (always ends visible). screen
+            blend drops the image's dark background into the overlay so it reads
+            as a floating wordmark, not a rectangular image. */}
         <div className="intro-logo">
           <Image
             src="/logo.jpeg"
@@ -78,23 +79,21 @@ export function IntroSequence() {
             width={1206}
             height={438}
             priority
-            className="block h-auto w-full [mask-image:radial-gradient(125%_130%_at_50%_50%,black_60%,transparent_100%)]"
+            className="block h-auto w-full [mask-image:radial-gradient(120%_135%_at_50%_50%,black_52%,transparent_92%)]"
+            style={{ mixBlendMode: "screen" }}
           />
         </div>
 
-        {/* glowing scan edge sweeping across as it lands */}
-        <motion.span
+        {/* glowing scan edge that leads the reveal (CSS-driven) */}
+        <span
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 w-[3%]"
+          className="intro-scan pointer-events-none absolute inset-y-0 w-[3%]"
           style={{
             background:
               "linear-gradient(90deg, transparent, rgba(180,212,255,0.95), rgba(255,255,255,0.9))",
             filter: "blur(2px)",
             mixBlendMode: "screen",
           }}
-          initial={{ left: "-4%", opacity: 0 }}
-          animate={{ left: ["-4%", "104%"], opacity: [0, 1, 1, 0] }}
-          transition={{ delay: revealDelay + 0.15, duration: revealDuration, ease: EASE }}
         />
 
         {/* light sweep after the logo lands */}
