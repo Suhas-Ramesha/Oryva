@@ -1,7 +1,13 @@
 export type EmailConfig = {
-  apiKey: string;
   from: string;
   to: string;
+  smtp: {
+    host: string;
+    port: number;
+    secure: boolean;
+    user: string;
+    password: string;
+  };
 };
 
 export class EmailConfigurationError extends Error {
@@ -13,11 +19,13 @@ export class EmailConfigurationError extends Error {
 
 export function getEmailConfig(env: NodeJS.ProcessEnv = process.env): EmailConfig {
   const missing: string[] = [];
-  const apiKey = env.RESEND_API_KEY?.trim() ?? "";
+  const user = env.SMTP_USER?.trim() ?? "";
+  const password = env.SMTP_PASSWORD?.trim() ?? "";
   const from = env.FORMS_FROM_EMAIL?.trim() ?? "";
   const to = env.FORMS_TO_EMAIL?.trim() ?? "";
 
-  if (!apiKey) missing.push("RESEND_API_KEY");
+  if (!user) missing.push("SMTP_USER");
+  if (!password) missing.push("SMTP_PASSWORD");
   if (!from) missing.push("FORMS_FROM_EMAIL");
   if (!to) missing.push("FORMS_TO_EMAIL");
 
@@ -25,5 +33,11 @@ export function getEmailConfig(env: NodeJS.ProcessEnv = process.env): EmailConfi
     throw new EmailConfigurationError(missing);
   }
 
-  return { apiKey, from, to };
+  // Host/port default to Gmail's SSL endpoint; override for other providers.
+  const host = env.SMTP_HOST?.trim() || "smtp.gmail.com";
+  const port = Number(env.SMTP_PORT?.trim() || "465");
+  // Port 465 uses implicit TLS; 587 uses STARTTLS (secure: false).
+  const secure = port === 465;
+
+  return { from, to, smtp: { host, port, secure, user, password } };
 }

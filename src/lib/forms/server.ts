@@ -1,10 +1,10 @@
 import { getEmailConfig } from "@/lib/email/config";
-import { ResendTransport } from "@/lib/email/resend-transport";
+import { SmtpTransport } from "@/lib/email/smtp-transport";
 
 export function getFormMailRuntime() {
   const config = getEmailConfig();
   return {
     config,
-    transport: new ResendTransport(config.apiKey),
+    transport: new SmtpTransport(config.smtp),
   };
 }
