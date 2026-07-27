@@ -9,15 +9,15 @@ import { PullQuote } from "@/components/ui/pull-quote";
 const SIDES = [
   {
     label: "The Product",
-    title: "For your next move",
-    body: "Meet the career platform being shaped around personal context and practical next steps.",
+    title: "Shaped around you",
+    body: "A career platform built around personal context, not a checklist.",
     href: "/product",
     cta: "Meet the product",
   },
   {
     label: "ORYVA FORGE",
     title: "For the builders",
-    body: "Enter the builder program for workshops, mentorship, fellowships, and Signal to Ship.",
+    body: "Workshops, mentorship, fellowships, and a hackathon called Signal to Ship.",
     href: "/forge",
     cta: "Enter ORYVA FORGE",
   },
@@ -32,16 +32,15 @@ export default function HomePage() {
         <Container>
           <div className="grid gap-6 md:grid-cols-12 md:items-start md:gap-8">
             <Reveal className="md:col-span-4">
-              <Eyebrow>A little about us</Eyebrow>
+              <Eyebrow>About us</Eyebrow>
               <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
                 A product company in motion.
               </h2>
             </Reveal>
             <Reveal delay={0.08} className="md:col-span-8">
               <p className="text-pretty text-lg leading-relaxed text-ink-soft">
-                We build intelligent products and a community for people who want to
-                make, test, and grow with technology. Better products come from staying
-                close to curious people and real questions.
+                We stay close to the people testing, questioning, and building alongside
+                us. That&apos;s usually where the better version of an idea shows up.
               </p>
             </Reveal>
           </div>
