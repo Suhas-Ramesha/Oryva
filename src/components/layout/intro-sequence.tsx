@@ -20,8 +20,8 @@ export function IntroSequence() {
   const [hidden, setHidden] = React.useState(false);
 
   React.useEffect(() => {
-    const fade = window.setTimeout(() => setHidden(true), 3000);
-    const remove = window.setTimeout(() => setMounted(false), 3750);
+    const fade = window.setTimeout(() => setHidden(true), 1900);
+    const remove = window.setTimeout(() => setMounted(false), 2500);
     return () => {
       window.clearTimeout(fade);
       window.clearTimeout(remove);
@@ -29,9 +29,6 @@ export function IntroSequence() {
   }, []);
 
   if (!mounted) return null;
-
-  const revealDelay = 0.35;
-  const revealDuration = 1.3;
 
   return (
     <motion.div
@@ -91,24 +88,6 @@ export function IntroSequence() {
               "linear-gradient(90deg, transparent, rgba(180,212,255,0.95), rgba(255,255,255,0.9))",
             filter: "blur(2px)",
             mixBlendMode: "screen",
-          }}
-        />
-
-        {/* light sweep after the logo lands */}
-        <motion.span
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 w-1/3"
-          style={{
-            background:
-              "linear-gradient(105deg, transparent 30%, rgba(180,212,255,0.55) 50%, transparent 70%)",
-            mixBlendMode: "screen",
-          }}
-          initial={{ x: "-160%", opacity: 0 }}
-          animate={{ x: "320%", opacity: [0, 1, 1, 0] }}
-          transition={{
-            delay: revealDelay + revealDuration + 0.15,
-            duration: 1.0,
-            ease: "easeInOut",
           }}
         />
       </div>

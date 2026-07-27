@@ -133,11 +133,11 @@ body {
 }
 
 .intro-logo {
-  animation: intro-wipe 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+  animation: intro-wipe 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
 }
 
 .intro-scan {
-  animation: intro-scan 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+  animation: intro-scan 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
 .text-balance {
