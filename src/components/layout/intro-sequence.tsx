@@ -69,18 +69,16 @@ export function IntroSequence() {
         className="relative"
         style={{ width: LOGO_WIDTH }}
       >
-        {/* logo draws in left-to-right via CSS (always ends visible). screen
-            blend drops the image's dark background into the overlay so it reads
-            as a floating wordmark, not a rectangular image. */}
+        {/* transparent-bg logo draws in left-to-right via CSS (always ends
+            visible) — no blend hacks needed, it sits cleanly on the overlay. */}
         <div className="intro-logo">
           <Image
-            src="/logo.jpeg"
+            src="/logo-mark.png"
             alt=""
-            width={1206}
-            height={438}
+            width={829}
+            height={301}
             priority
-            className="block h-auto w-full [mask-image:radial-gradient(120%_135%_at_50%_50%,black_52%,transparent_92%)]"
-            style={{ mixBlendMode: "screen" }}
+            className="block h-auto w-full"
           />
         </div>
 
