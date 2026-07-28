@@ -5,13 +5,14 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { PullQuote } from "@/components/ui/pull-quote";
-import { NumberedStep } from "@/components/ui/numbered-step";
 import { Card } from "@/components/ui/card";
+import { Magnetic } from "@/components/ui/magnetic";
+import { AboutPrinciples } from "@/components/sections/about-principles";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The belief behind ORYVA-AI, and how we turn intelligent tools into real, useful progress for the people who use them.",
+    "The belief behind ORYVA AI, and how we turn intelligent tools into real, useful progress for the people who use them.",
 };
 
 const MATTERS = [
@@ -21,24 +22,20 @@ const MATTERS = [
   "And community as a force that makes individual potential travel further.",
 ];
 
-const STEPS = [
+const PRINCIPLES = [
   {
-    index: "01",
     title: "Start with what is real",
     body: "Every good product starts with a real question. We look for the friction, uncertainty, or possibility behind it before we think about features.",
   },
   {
-    index: "02",
     title: "Make intelligence useful",
     body: "AI should feel like thoughtful support, not noise. We use it where it can bring context, perspective, and momentum to a person's next step.",
   },
   {
-    index: "03",
     title: "Keep builders close",
-    body: "ORYVA FORGE keeps us near the energy of people who are learning, experimenting, questioning, and building the future in their own way.",
+    body: "We stay near people who are learning, experimenting, questioning, and building in public, because that energy keeps our products honest.",
   },
   {
-    index: "04",
     title: "Grow through use",
     body: "A launch is not the end of the work. We listen, learn, improve, and keep making the experience more useful over time.",
   },
@@ -47,21 +44,21 @@ const STEPS = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="pt-28 pb-16 sm:pt-32 sm:pb-24">
-        <Container>
+      <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16">
+        <div className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]" />
+        <Container className="relative">
           <Reveal>
-            <Eyebrow>About ORYVA-AI</Eyebrow>
+            <Eyebrow>About ORYVA AI</Eyebrow>
           </Reveal>
-          <div className="mt-8 grid gap-x-12 gap-y-8 lg:grid-cols-12 lg:items-end">
-            <Reveal delay={0.08} className="lg:col-span-7">
-              <h1 className="font-[family-name:var(--font-display)] text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+          <div className="mt-6 grid gap-x-8 gap-y-5 lg:grid-cols-12 lg:items-end">
+            <Reveal delay={0.06} className="lg:col-span-7">
+              <h1 className="font-display text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
                 We are here for the work after the idea.
               </h1>
             </Reveal>
-            <Reveal delay={0.16} className="lg:col-span-5">
+            <Reveal delay={0.12} className="lg:col-span-5">
               <p className="text-pretty text-lg leading-relaxed text-ink-soft lg:border-l lg:border-hairline lg:pl-6">
-                ORYVA-AI began with a simple belief: technology should not make people
+                ORYVA AI began with a simple belief: technology should not make people
                 feel smaller. It should help them see more clearly what they can do
                 next.
               </p>
@@ -70,19 +67,18 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Our Story */}
-      <section className="py-20 sm:py-28">
+      <section className="py-14 sm:py-20">
         <Container>
           <Reveal>
             <Eyebrow>Our Story</Eyebrow>
           </Reveal>
-          <Reveal delay={0.1}>
-            <PullQuote className="mt-8 max-w-3xl">
+          <Reveal delay={0.08}>
+            <PullQuote className="mt-5 max-w-3xl">
               There is no shortage of impressive technology.
             </PullQuote>
           </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
+          <Reveal delay={0.14}>
+            <p className="mt-6 max-w-2xl text-pretty leading-relaxed text-ink-soft">
               There are demos that look magical, tools that promise everything, and
               conversations that move faster than real progress. But when someone is
               choosing a direction, learning something new, or trying to turn a rough
@@ -93,52 +89,45 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* What We Believe */}
-      <section className="border-t border-hairline bg-paper-2 py-20 sm:py-28">
+      <section className="border-t border-hairline bg-paper-2 py-14 sm:py-20">
         <Container>
-          <div className="grid gap-10 md:grid-cols-12">
-            <div className="md:col-span-4">
-              <Reveal>
-                <Eyebrow>What We Believe</Eyebrow>
-                <h2 className="mt-5 font-[family-name:var(--font-display)] text-3xl leading-tight text-ink sm:text-4xl">
-                  Quietly powerful.
-                </h2>
-              </Reveal>
-            </div>
-            <div className="md:col-span-8">
-              <Reveal delay={0.1}>
-                <p className="max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
-                  We believe the best AI products are quietly powerful. They do
-                  not demand attention; they earn trust. They help people notice
-                  patterns, ask better questions, and take one meaningful step at
-                  a time.
-                </p>
-              </Reveal>
-            </div>
+          <div className="grid gap-6 md:grid-cols-12 md:items-start md:gap-8">
+            <Reveal className="md:col-span-4">
+              <Eyebrow>What We Believe</Eyebrow>
+              <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
+                Quietly powerful.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.08} className="md:col-span-8">
+              <p className="text-pretty text-lg leading-relaxed text-ink-soft">
+                We believe the best AI products are quietly powerful. They do not demand
+                attention; they earn trust. They help people notice patterns, ask better
+                questions, and take one meaningful step at a time.
+              </p>
+            </Reveal>
           </div>
         </Container>
       </section>
 
-      {/* Mission + Vision */}
-      <section className="py-20 sm:py-28">
+      <section className="py-14 sm:py-20">
         <Container>
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             <Reveal>
-              <Card className="h-full p-8">
+              <Card className="h-full p-6 sm:p-7">
                 <Eyebrow>Mission</Eyebrow>
-                <p className="mt-6 text-pretty text-lg leading-relaxed text-ink-soft">
-                  To build intelligent products that help people move from
-                  uncertainty to action — and to create spaces where more people
-                  can learn to build with confidence.
+                <p className="mt-4 text-pretty leading-relaxed text-ink-soft">
+                  To build intelligent products that help people move from uncertainty to
+                  action, and to create spaces where more people can learn to build with
+                  confidence.
                 </p>
               </Card>
             </Reveal>
-            <Reveal delay={0.1}>
-              <Card className="h-full p-8">
+            <Reveal delay={0.08}>
+              <Card className="h-full p-6 sm:p-7">
                 <Eyebrow>Vision</Eyebrow>
-                <p className="mt-6 text-pretty text-lg leading-relaxed text-ink-soft">
-                  A world where access to insight, direction, and the chance to
-                  create is not limited to a small group of people.
+                <p className="mt-4 text-pretty leading-relaxed text-ink-soft">
+                  A world where access to insight, direction, and the chance to create is
+                  not limited to a small group of people.
                 </p>
               </Card>
             </Reveal>
@@ -146,67 +135,72 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* What Matters to Us */}
-      <section className="border-t border-hairline bg-paper-2 py-20 sm:py-28">
+      <section className="border-t border-hairline bg-paper-2 py-14 sm:py-20">
         <Container>
-          <Reveal>
-            <Eyebrow>What Matters to Us</Eyebrow>
-          </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {MATTERS.map((phrase, i) => (
-              <Reveal key={phrase} delay={0.1 + i * 0.06}>
-                <div className="flex h-full items-start gap-4 rounded-2xl border border-hairline bg-paper p-6">
-                  <span
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-signal"
-                    aria-hidden
-                  />
-                  <p className="font-[family-name:var(--font-display)] text-xl leading-snug text-ink">
-                    {phrase}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="grid gap-8 md:grid-cols-12 md:gap-10">
+            <Reveal className="md:col-span-4">
+              <Eyebrow>What Matters to Us</Eyebrow>
+              <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
+                The standards we hold.
+              </h2>
+            </Reveal>
+            <div className="md:col-span-8">
+              <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+                {MATTERS.map((phrase, i) => (
+                  <Reveal key={phrase} delay={0.06 + i * 0.08}>
+                    <div>
+                      <span className="font-label text-xs font-medium tracking-[0.24em] text-signal">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="mt-3 font-display text-xl leading-snug text-ink sm:text-2xl">
+                        {phrase}
+                      </p>
+                      <span
+                        aria-hidden
+                        className="mt-4 block h-px w-12 bg-gradient-to-r from-brand to-transparent"
+                      />
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
       </section>
 
-      {/* Why ORYVA-AI */}
-      <section className="py-20 sm:py-28">
+      <section className="py-14 sm:py-20">
         <Container>
           <Reveal>
-            <Eyebrow>Why ORYVA-AI</Eyebrow>
-            <h2 className="mt-5 max-w-2xl font-[family-name:var(--font-display)] text-3xl leading-tight text-ink sm:text-4xl">
-              How we work.
+            <Eyebrow>Why ORYVA AI</Eyebrow>
+            <h2 className="mt-4 max-w-2xl font-display text-3xl leading-tight text-ink sm:text-4xl">
+              Principles we return to.
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
-            {STEPS.map((step, i) => (
-              <Reveal key={step.index} delay={0.1 + i * 0.08}>
-                <NumberedStep index={step.index} title={step.title}>
-                  {step.body}
-                </NumberedStep>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.08}>
+            <AboutPrinciples className="mt-8" principles={PRINCIPLES} />
+          </Reveal>
         </Container>
       </section>
 
-      {/* Closing CTA band */}
-      <section className="border-t border-hairline py-24 sm:py-32">
+      <section className="border-t border-hairline bg-paper-2 py-16 sm:py-20">
         <Container className="flex flex-col items-center text-center">
           <Reveal>
             <PullQuote className="max-w-3xl">
               Meet the product, or join the journey.
             </PullQuote>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" asChild>
-                <Link href="/product">Meet the product</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/forge">Join the journey</Link>
-              </Button>
+          <Reveal delay={0.08}>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Magnetic>
+                <Button size="lg" asChild>
+                  <Link href="/product">Meet the product</Link>
+                </Button>
+              </Magnetic>
+              <Magnetic>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/forge">Join the journey</Link>
+                </Button>
+              </Magnetic>
             </div>
           </Reveal>
         </Container>

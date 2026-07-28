@@ -1,33 +1,27 @@
 "use client";
 
 import * as React from "react";
-import { motion, type Variants } from "framer-motion";
-
-const variants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] },
-  }),
-};
+import { motion } from "framer-motion";
 
 export function Reveal({
   children,
   delay = 0,
+  duration = 0.55,
+  distance = 14,
   className,
 }: {
   children: React.ReactNode;
   delay?: number;
+  duration?: number;
+  distance?: number;
   className?: string;
 }) {
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-      custom={delay}
-      variants={variants}
+      initial={{ opacity: 0, y: distance }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
     >
       {children}

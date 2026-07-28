@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Space_Grotesk, Fraunces } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { IntroSequence } from "@/components/layout/intro-sequence";
 import { LenisProvider } from "@/components/providers/lenis-provider";
 import { SOCIALS } from "@/components/ui/social-icon";
 import "./globals.css";
@@ -9,12 +10,12 @@ import "./globals.css";
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "ORYVA-AI",
-  url: "https://www.oryva-ai.com",
-  logo: "https://www.oryva-ai.com/opengraph-image",
-  email: "contact@oryva-ai.com",
+  name: "ORYVA AI",
+  url: "https://www.oryva.com",
+  logo: "https://www.oryva.com/opengraph-image",
+  email: "contact@oryvaai.com",
   description:
-    "ORYVA-AI builds intelligent products and runs ORYVA FORGE, a builder program — for the moments when people need more clarity, more confidence, and a better way forward.",
+    "ORYVA AI builds intelligent products and runs ORYVA FORGE, a builder program for the moments when people need more clarity, more confidence, and a better way forward.",
   sameAs: SOCIALS.map((s) => s.href),
 };
 
@@ -42,23 +43,23 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.oryva-ai.com"),
+  metadataBase: new URL("https://www.oryva.com"),
   title: {
-    default: "ORYVA-AI — Build what people can actually use",
-    template: "%s — ORYVA-AI",
+    default: "ORYVA AI | Build what people can actually use",
+    template: "%s | ORYVA AI",
   },
   description:
-    "ORYVA-AI is where thoughtful technology, practical design, and human ambition meet. We build intelligent products — and ORYVA FORGE, a builder program — for the moments when people need more clarity and a better way forward.",
+    "ORYVA AI is where thoughtful technology, practical design, and human ambition meet. We build intelligent products and run ORYVA FORGE for the moments when people need more clarity and a better way forward.",
   openGraph: {
-    title: "ORYVA-AI — Build what people can actually use",
+    title: "ORYVA AI | Build what people can actually use",
     description:
       "Intelligent products for the moments when people need more clarity, more confidence, and a better way forward.",
-    siteName: "ORYVA-AI",
+    siteName: "ORYVA AI",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ORYVA-AI — Build what people can actually use",
+    title: "ORYVA AI | Build what people can actually use",
     description:
       "Intelligent products for the moments when people need more clarity, more confidence, and a better way forward.",
   },
@@ -72,12 +73,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <IntroSequence />
+        {/* Organization schema intentionally has no telephone field. */}
         <script
           type="application/ld+json"
-          // Organization schema intentionally has no telephone field.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <LenisProvider>

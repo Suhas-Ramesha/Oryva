@@ -32,9 +32,16 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
+
+# isolated development worktrees
+.worktrees/
+
+# local Superpowers workflow output
+.superpowers/
 
 # claude code local settings
 .claude/settings.local.json

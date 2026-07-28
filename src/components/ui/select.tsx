@@ -14,8 +14,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           ref={ref}
           aria-invalid={error || undefined}
           className={cn(
-            "flex h-12 w-full appearance-none rounded-xl border bg-paper-2 px-4 pr-10 text-sm text-ink transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand/30",
-            error ? "border-signal" : "border-hairline focus:border-brand",
+            "flex h-12 w-full appearance-none rounded-xl border bg-paper px-4 pr-10 text-sm text-ink transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand/35",
+            error ? "border-signal" : "border-field-border focus:border-brand",
             className
           )}
           {...props}

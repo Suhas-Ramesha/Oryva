@@ -1,11 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { BookOpen, Users, Rocket, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { Magnetic } from "@/components/ui/magnetic";
-import { selectForgeTrack, type Track } from "@/components/forms/forge-application-form";
+import { getTrackSlug, type Track } from "@/lib/forge/tracks";
 
 const TRACKS: {
   title: string;
@@ -40,9 +41,13 @@ export function ForgeInteractive() {
   return (
     <div className="mt-14 grid gap-6 md:grid-cols-3">
       {TRACKS.map(({ title, track, icon: Icon, description }, i) => (
-        <Reveal key={track} delay={i * 0.08}>
-          <Card className="flex h-full flex-col p-8">
-            <Icon className="h-7 w-7 text-brand" strokeWidth={1.5} aria-hidden />
+        <Reveal key={track} delay={i * 0.08} className="h-full">
+          <Card className="group flex h-full flex-col p-8 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-brand/50 hover:shadow-[0_22px_48px_-30px_rgba(110,168,255,0.7)]">
+            <Icon
+              className="h-7 w-7 text-brand transition-colors duration-300 group-hover:text-brand-bright"
+              strokeWidth={1.5}
+              aria-hidden
+            />
             <h2 className="mt-6 font-[family-name:var(--font-display)] text-2xl leading-tight text-ink">
               {title}
             </h2>
@@ -50,11 +55,13 @@ export function ForgeInteractive() {
               {description}
             </p>
             <Magnetic className="mt-8 inline-block w-fit" strength={0.25}>
-              <Button variant="outline" onClick={() => selectForgeTrack(track)}>
-                <span className="flex items-center gap-2">
-                  Apply — {title}
-                  <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-                </span>
+              <Button variant="outline" asChild>
+                <Link href={`/forge/apply?track=${getTrackSlug(track)}`}>
+                  <span className="flex items-center gap-2">
+                    Apply for {title}
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+                  </span>
+                </Link>
               </Button>
             </Magnetic>
           </Card>

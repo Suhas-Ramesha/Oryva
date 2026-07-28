@@ -4,18 +4,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "group relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium tracking-tight transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:pointer-events-none disabled:opacity-40",
+  "group relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium tracking-tight transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-bright focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:pointer-events-none disabled:opacity-40",
   {
     variants: {
       variant: {
         primary:
-          "bg-signal text-paper-2 shadow-[0_1px_2px_rgba(23,19,14,0.12)] hover:brightness-95",
+          "bg-brand-bright text-paper shadow-[0_8px_28px_-12px_rgba(62,123,250,0.7)] hover:bg-signal-bright hover:shadow-[0_10px_32px_-12px_rgba(62,123,250,0.85)]",
         secondary:
-          "bg-ink text-paper hover:bg-ink-soft",
+          "border border-hairline-strong bg-paper-2 text-ink hover:border-brand/60 hover:bg-paper-3",
         ghost:
           "bg-transparent text-brand hover:text-brand-bright",
         outline:
-          "border border-hairline-strong bg-transparent text-ink hover:border-brand hover:text-brand",
+          "border border-hairline-strong bg-transparent text-ink hover:border-brand hover:bg-brand-dim hover:text-brand-bright",
       },
       size: {
         sm: "h-9 px-4 text-[13px]",

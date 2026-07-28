@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "ORYVA-AI — Build what people can actually use";
+export const alt = "ORYVA AI | Build what people can actually use";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,8 +15,8 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          background: "#f7f4ed",
-          color: "#17130e",
+          background: "#08090c",
+          color: "#f2f4f8",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
@@ -25,7 +25,7 @@ export default function OpengraphImage() {
               width: 14,
               height: 14,
               borderRadius: 9999,
-              background: "#d2603a",
+              background: "#3e7bfa",
             }}
           />
           <div
@@ -33,10 +33,10 @@ export default function OpengraphImage() {
               fontSize: 30,
               letterSpacing: 2,
               fontWeight: 600,
-              color: "#12463a",
+              color: "#6ea8ff",
             }}
           >
-            ORYVA-AI
+            ORYVA AI
           </div>
         </div>
 
@@ -52,7 +52,7 @@ export default function OpengraphImage() {
           Build what people can actually use.
         </div>
 
-        <div style={{ display: "flex", fontSize: 28, color: "#6e6559", maxWidth: 900 }}>
+        <div style={{ display: "flex", fontSize: 28, color: "#99a1b3", maxWidth: 900 }}>
           Real ideas deserve more than a good presentation. They deserve a chance to
           become useful.
         </div>
