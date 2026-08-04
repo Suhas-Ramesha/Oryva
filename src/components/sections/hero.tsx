@@ -1,6 +1,8 @@
 "use client";
 
+import * as React from "react";
 import Link from "next/link";
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -9,6 +11,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { Magnetic } from "@/components/ui/magnetic";
 import { Carousel } from "@/components/ui/carousel";
 import { ProductMockup } from "@/components/ui/product-mockup";
+import { HeroBackground } from "@/components/ui/hero-background";
 
 function SlideShell({
   label,
@@ -82,11 +85,31 @@ const SLIDES = [
 ];
 
 export function Hero() {
-  return (
-    <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16">
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]" />
+  const x = useMotionValue(-400);
+  const y = useMotionValue(-400);
+  const springX = useSpring(x, { stiffness: 150, damping: 30, mass: 0.5 });
+  const springY = useSpring(y, { stiffness: 150, damping: 30, mass: 0.5 });
+  const spotlight = useMotionTemplate`radial-gradient(480px circle at ${springX}px ${springY}px, var(--brand-dim), transparent 70%)`;
 
-      <Container className="relative grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    x.set(e.clientX - rect.left);
+    y.set(e.clientY - rect.top);
+  };
+
+  return (
+    <section
+      onMouseMove={handleMouseMove}
+      className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16"
+    >
+      <HeroBackground />
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{ background: spotlight }}
+      />
+
+      <Container className="relative z-10 grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
         <div className="min-w-0">
           <Reveal>
             <Eyebrow>ORYVA AI</Eyebrow>
