@@ -19,7 +19,7 @@ export function Footer() {
     <footer className="border-t border-hairline bg-paper-3">
       <Container className="py-12 sm:py-14">
         <p className="max-w-xl font-display text-balance text-xl italic leading-snug text-ink sm:text-2xl">
-          Ideas, made useful.
+          Your next step starts here.
         </p>
 
         <div className="mt-10 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
@@ -31,8 +31,9 @@ export function Footer() {
               <BrandLogo className="w-[7.25rem]" />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              A product company in motion, building intelligent products and a
-              community for people who want to make, test, and grow with technology.
+              ORYVA AI helps you see where your skills and curiosity actually
+              lead. And FORGE gives you a space to build, learn, and grow
+              through real work.
             </p>
             <div className="mt-6 flex items-center gap-3">
               {SOCIALS.map(({ platform, label, href }) => (
@@ -80,6 +81,12 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+            <p className="mt-6 text-sm leading-relaxed text-muted">
+              Got a question, an idea, or just want to say hi? We&apos;re at{" "}
+              <a href="mailto:contact@oryvaai.com" className="text-ink hover:text-brand">
+                contact@oryvaai.com
+              </a>
+            </p>
           </div>
         </div>
       </Container>
@@ -88,7 +95,7 @@ export function Footer() {
         <Container className="flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted-2 md:flex-row">
           <p>© {year} ORYVA AI. All rights reserved.</p>
           <p className="font-[family-name:var(--font-label)] uppercase tracking-[0.15em]">
-            Ideas, made useful.
+            Figure out what&apos;s next. Then go make it.
           </p>
         </Container>
       </div>
