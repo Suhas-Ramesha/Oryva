@@ -116,14 +116,14 @@ export function Hero() {
           </Reveal>
           <Reveal delay={0.06}>
             <h1 className="mt-5 max-w-2xl font-display text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-              Build what people can actually use.
+              For people figuring out what to do next.
             </h1>
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-              ORYVA AI is where thoughtful technology, practical design, and human
-              ambition meet. We build intelligent products for moments when people need
-              more clarity, confidence, and a better way forward.
+              ORYVA AI builds an AI-powered career platform that connects your skills,
+              curiosity, and experience into realistic next steps. And through ORYVA FORGE,
+              we give builders a place to learn, make, and grow through real work.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
@@ -131,7 +131,7 @@ export function Hero() {
               <Magnetic>
                 <Button size="lg" asChild>
                   <Link href="/product" className="group flex items-center gap-2">
-                    Explore Our Product
+                    See the Product
                     <ArrowRight
                       className="h-4 w-4 transition-transform group-hover:translate-x-1"
                       aria-hidden
@@ -141,7 +141,7 @@ export function Hero() {
               </Magnetic>
               <Magnetic>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="/forge">Discover ORYVA FORGE</Link>
+                  <Link href="/forge">Explore FORGE</Link>
                 </Button>
               </Magnetic>
             </div>
