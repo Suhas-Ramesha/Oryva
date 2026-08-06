@@ -51,7 +51,7 @@ export function ContactForm() {
 
       <div>
         <Label htmlFor="name">Your name</Label>
-        <Input id="name" placeholder="Jane Doe" {...register("name")} error={!!errors.name} />
+        <Input id="name" placeholder="Your name" {...register("name")} error={!!errors.name} />
         {errors.name && <p className="mt-1.5 text-xs text-signal">{errors.name.message}</p>}
       </div>
 
@@ -62,7 +62,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <Label htmlFor="topic">What would you like to talk about?</Label>
+        <Label htmlFor="topic">What&apos;s this about?</Label>
         <Select id="topic" {...register("topic")} error={!!errors.topic}>
           {contactTopics.map((topic) => (
             <option key={topic} value={topic}>
@@ -76,7 +76,7 @@ export function ContactForm() {
         <Label htmlFor="message">Your message</Label>
         <Textarea
           id="message"
-          placeholder="A few honest lines are enough."
+          placeholder="What are you thinking about?"
           {...register("message")}
           error={!!errors.message}
         />
@@ -96,7 +96,7 @@ export function ContactForm() {
           </span>
         ) : (
           <span className="flex items-center gap-2">
-            Start a conversation <Send className="h-4 w-4" aria-hidden />
+            Send it <Send className="h-4 w-4" aria-hidden />
           </span>
         )}
       </Button>

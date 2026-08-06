@@ -28,9 +28,8 @@ export default function ContactPage() {
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-5 max-w-md text-pretty text-lg leading-relaxed text-ink-soft">
-                Whether you have a question about the product, want to join ORYVA FORGE,
-                are interested in a partnership, or simply want to say hello, we would
-                love to hear from you.
+                A question about the product, interest in FORGE, a partnership idea, or
+                just a hello. Whatever it is, we&apos;d like to hear it.
               </p>
             </Reveal>
 
@@ -63,8 +62,8 @@ export default function ContactPage() {
                 </div>
 
                 <p className="mt-7 max-w-sm text-pretty text-sm leading-relaxed text-muted">
-                  Good things often begin with a small message, a curious question, or an
-                  idea that is not fully formed yet. Send it anyway.
+                  You don&apos;t need a polished pitch. A few honest lines are more than
+                  enough.
                 </p>
               </div>
             </Reveal>
@@ -73,8 +72,7 @@ export default function ContactPage() {
           <Reveal delay={0.1}>
             <div className="rounded-3xl border border-hairline bg-paper-2 p-6 sm:p-8 lg:sticky lg:top-28">
               <p className="text-pretty leading-relaxed text-muted">
-                Tell us a little about what is on your mind. You do not need a polished
-                proposal. A few honest lines are enough to start the conversation.
+                Tell us what&apos;s on your mind. We&apos;ll get back to you.
               </p>
               <div className="mt-6">
                 <ContactForm />

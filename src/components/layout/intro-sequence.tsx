@@ -85,7 +85,7 @@ export function IntroSequence() {
           className="intro-scan pointer-events-none absolute inset-y-0 w-[3%]"
           style={{
             background:
-              "linear-gradient(90deg, transparent, rgba(180,212,255,0.95), rgba(255,255,255,0.9))",
+              "linear-gradient(90deg, transparent, rgba(180,212,255,0.7), rgba(255,255,255,0.65))",
             filter: "blur(2px)",
             mixBlendMode: "screen",
           }}

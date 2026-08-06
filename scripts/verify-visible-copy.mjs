@@ -6,7 +6,7 @@ const pages = [
   "about.html",
   "product.html",
   "forge.html",
-  "how-it-works.html",
+  "our-approach.html",
   "contact.html",
   "_not-found.html",
 ];

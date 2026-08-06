@@ -7,7 +7,7 @@ const ROUTES = [
   "/forge",
   "/forge/apply",
   "/product",
-  "/how-it-works",
+  "/our-approach",
   "/contact",
 ];
 

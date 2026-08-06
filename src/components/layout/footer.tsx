@@ -8,7 +8,7 @@ const QUICK_LINKS = [
   { label: "About", href: "/about" },
   { label: "ORYVA FORGE", href: "/forge" },
   { label: "Product", href: "/product" },
-  { label: "How It Works", href: "/how-it-works" },
+  { label: "Our Approach", href: "/our-approach" },
   { label: "Contact", href: "/contact" },
 ];
 
