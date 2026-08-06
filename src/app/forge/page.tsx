@@ -7,7 +7,6 @@ import { Reveal } from "@/components/ui/reveal";
 import { ForgeInteractive } from "@/components/sections/forge-interactive";
 import { Magnetic } from "@/components/ui/magnetic";
 import { ScrollSteps } from "@/components/sections/scroll-steps";
-import { PullQuote } from "@/components/ui/pull-quote";
 
 export const metadata: Metadata = {
   title: "ORYVA FORGE",
@@ -18,28 +17,23 @@ export const metadata: Metadata = {
 const STEPS = [
   {
     index: "01",
-    title: "Find the signal",
-    body: "It might be a small everyday problem, a challenge on campus, a gap in the way people learn, or a moment that should be easier than it is. The best signals are specific enough to feel real.",
+    title: "Spot the signal",
+    body: "Find a real problem. Not a theme from a prompt list. Something you’ve seen, felt, or lived with. The more specific, the better.",
   },
   {
     index: "02",
-    title: "Turn it into a useful question",
-    body: "Teams work through a simple challenge: Who is this for? What is getting in their way? What is the smallest thing we could make that would genuinely help?",
+    title: "Build the proof",
+    body: "The goal isn’t a polished product or a perfect slide deck. It’s something another person can see, touch, try, or react to. Make it real enough to test.",
   },
   {
     index: "03",
-    title: "Build the proof",
-    body: "The goal is not a perfect product or a beautiful set of slides. The goal is a working proof, something another person can see, touch, try, or respond to before time runs out.",
+    title: "Show what you learned",
+    body: "Teams present what they made, why they made it, and what happened when real people tried it. We reward usefulness, clarity, and smart decisions, not just polish.",
   },
   {
     index: "04",
-    title: "Show the learning",
-    body: "Teams share what they made, why they made it, and what changed when they tested the idea. We reward usefulness, courage, clarity, and smart choices, not just polish.",
-  },
-  {
-    index: "05",
-    title: "Keep the signal alive",
-    body: "Strong projects do not have to end when the event does. Selected teams can be invited to keep developing through continued critique, mentorship, or a future FORGE pathway.",
+    title: "Keep going",
+    body: "Strong projects don’t die when the event ends. Selected teams get invited into continued mentorship, feedback, or a future FORGE track to keep building.",
   },
 ];
 
@@ -58,15 +52,14 @@ export default function ForgePage() {
           <div className="mt-6 grid gap-x-8 gap-y-6 lg:grid-cols-12 lg:items-end">
             <Reveal delay={0.06} className="lg:col-span-7">
               <h1 className="font-display text-balance text-5xl font-semibold leading-[1.03] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-                Come with a question. Leave with proof.
+                Stop planning. Start making.
               </h1>
             </Reveal>
             <Reveal delay={0.12} className="lg:col-span-5">
               <p className="text-pretty text-lg leading-relaxed text-ink-soft lg:border-l lg:border-hairline lg:pl-6">
-                ORYVA FORGE is a builder program for people who learn best by getting
-                their hands on the work. It is not a classroom where you wait for the
-                right answer. It is a place to try, make, share, rethink, and make
-                again.
+                FORGE is where ideas stop being conversations and start becoming real
+                things. A hands-on program for builders who learn best by doing the
+                work, not watching someone else do it.
               </p>
             </Reveal>
           </div>
@@ -74,7 +67,7 @@ export default function ForgePage() {
             <div className="mt-8">
               <Magnetic>
                 <Button size="lg" asChild>
-                  <Link href="/forge/apply?track=signal-to-ship">Bring Your Signal</Link>
+                  <Link href="/forge/apply">Apply to FORGE</Link>
                 </Button>
               </Magnetic>
             </div>
@@ -86,20 +79,21 @@ export default function ForgePage() {
         <Container>
           <div className="grid gap-5 md:grid-cols-12 md:items-start md:gap-8">
             <Reveal className="md:col-span-4">
-              <Eyebrow>What FORGE feels like</Eyebrow>
+              <Eyebrow>Built for</Eyebrow>
               <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
-                Everyone begins somewhere.
+                You don&apos;t need a perfect idea. You need a place to start.
               </h2>
             </Reveal>
             <Reveal delay={0.08} className="md:col-span-8 space-y-4">
               <p className="text-pretty text-lg leading-relaxed text-ink-soft">
-                Some people arrive with an early stage idea. Some arrive with a project
-                that has stopped moving. Some simply want to understand how intelligent
-                products are made.
+                FORGE is for students, early-career makers, aspiring founders, designers,
+                developers, and anyone who has an idea sitting in their head but no space
+                to test it. You might have a project that&apos;s stuck. You might have a
+                skill you want to sharpen. You might just want to understand how real
+                products get built.
               </p>
               <p className="text-pretty leading-relaxed text-muted">
-                All are welcome to begin somewhere. FORGE gives each person a practical
-                way in.
+                All of that belongs here.
               </p>
             </Reveal>
           </div>
@@ -109,7 +103,10 @@ export default function ForgePage() {
       <section className="py-14 sm:py-20">
         <Container>
           <Reveal>
-            <Eyebrow>Three tracks</Eyebrow>
+            <Eyebrow>Three ways in</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
+              Pick the track that matches where you are.
+            </h2>
           </Reveal>
           <ForgeInteractive />
         </Container>
@@ -129,10 +126,10 @@ export default function ForgePage() {
             <div className="md:col-span-7">
               <Reveal delay={0.08}>
                 <p className="text-pretty text-lg leading-relaxed text-ink-soft">
-                  Signal to Ship is ORYVA FORGE&apos;s own kind of hackathon. Instead of
-                  beginning with a generic theme, every team begins with a signal:
-                  something they have noticed in the real world that feels broken,
-                  overlooked, frustrating, or full of possibility.
+                  Not your typical hackathon. Every team starts with something
+                  they&apos;ve noticed in the real world, something broken, overlooked,
+                  or harder than it should be. Then they build working proof before time
+                  runs out.
                 </p>
               </Reveal>
             </div>
@@ -141,15 +138,39 @@ export default function ForgePage() {
           <div className="mt-12">
             <ScrollSteps steps={STEPS} />
           </div>
+
+          <Reveal delay={0.1}>
+            <div className="mt-10">
+              <Magnetic>
+                <Button size="lg" asChild>
+                  <Link href="/forge/apply?track=signal-to-ship">Bring your signal</Link>
+                </Button>
+              </Magnetic>
+            </div>
+          </Reveal>
         </Container>
       </section>
 
-      <section className="border-t border-hairline bg-paper-2 py-14 sm:py-16">
-        <Container className="flex justify-center text-center">
+      <section className="border-t border-hairline py-14 sm:py-16">
+        <Container className="flex flex-col items-center text-center">
           <Reveal>
-            <PullQuote className="max-w-3xl">
-              Bring a signal. Leave with proof worth continuing.
-            </PullQuote>
+            <h2 className="max-w-3xl font-display text-3xl leading-tight text-ink sm:text-4xl">
+              The best way to learn is to make something that matters.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Magnetic>
+                <Button size="lg" asChild>
+                  <Link href="/forge/apply">Apply to FORGE</Link>
+                </Button>
+              </Magnetic>
+              <Magnetic>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/contact">Talk to us first</Link>
+                </Button>
+              </Magnetic>
+            </div>
           </Reveal>
         </Container>
       </section>

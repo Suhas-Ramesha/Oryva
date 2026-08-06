@@ -31,17 +31,19 @@ export function ProductMockup() {
           </span>
         </div>
 
-        <div className="mt-8 flex flex-1 items-end justify-between gap-2">
-          {BARS.map((h, i) => (
-            <motion.div
-              key={i}
-              initial={{ height: 0 }}
-              whileInView={{ height: `${h}%` }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full rounded-full bg-gradient-to-t from-brand/25 via-brand to-brand-bright"
-            />
-          ))}
+        <div className="flex flex-1 items-center justify-center">
+          <div className="flex items-end gap-2">
+            {BARS.map((h, i) => (
+              <motion.div
+                key={i}
+                initial={{ height: 0, opacity: 0 }}
+                whileInView={{ height: `${h * 0.6}px`, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="w-3 rounded-full bg-gradient-to-t from-brand/25 via-brand to-brand-bright"
+              />
+            ))}
+          </div>
         </div>
 
         <div className="mt-8 flex items-center gap-2 border-t border-hairline pt-5">

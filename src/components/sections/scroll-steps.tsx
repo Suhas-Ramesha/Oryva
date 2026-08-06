@@ -17,12 +17,7 @@ export type Step = {
   body: string;
 };
 
-/**
- * Vertical connected stepper. A brand-coloured rail fills top-to-bottom as the
- * section scrolls (pointing you to the next step); each step pops in on entry
- * and its node lights up when reached. Mobile-friendly (no sticky panel, no
- * viewport-height cards).
- */
+/** Vertical connected stepper with scroll-driven rail fill. */
 export function ScrollSteps({
   steps,
   className,
@@ -32,6 +27,9 @@ export function ScrollSteps({
 }) {
   const reducedMotion = useReducedMotion() ?? false;
   const ref = React.useRef<HTMLDivElement>(null);
+  const firstNodeRef = React.useRef<HTMLSpanElement>(null);
+  const lastNodeRef = React.useRef<HTMLSpanElement>(null);
+  const [railStyle, setRailStyle] = React.useState({ top: 15, height: 0 });
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 65%", "end 75%"],
@@ -43,12 +41,32 @@ export function ScrollSteps({
   });
   const scaleY = useTransform(fill, [0, 1], [0, 1]);
 
+  React.useEffect(() => {
+    const container = ref.current;
+    const firstNode = firstNodeRef.current;
+    const lastNode = lastNodeRef.current;
+    if (!container || !firstNode || !lastNode) return;
+    const measure = () => {
+      const containerRect = container.getBoundingClientRect();
+      const firstRect = firstNode.getBoundingClientRect();
+      const lastRect = lastNode.getBoundingClientRect();
+      const firstCenter = firstRect.top + firstRect.height / 2 - containerRect.top;
+      const lastCenter = lastRect.top + lastRect.height / 2 - containerRect.top;
+      setRailStyle({ top: firstCenter, height: lastCenter - firstCenter });
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [steps.length]);
+
   return (
     <div ref={ref} className={cn("relative", className)}>
       {/* Rail */}
       <div
         aria-hidden
-        className="absolute bottom-6 top-6 left-[17px] w-px bg-hairline sm:left-[21px]"
+        className="absolute left-[17px] w-px bg-hairline sm:left-[21px]"
+        style={{ top: railStyle.top, height: railStyle.height }}
       >
         <motion.div
           className="absolute inset-x-0 top-0 h-full origin-top rounded-full bg-gradient-to-b from-brand-bright to-brand"
@@ -57,8 +75,13 @@ export function ScrollSteps({
       </div>
 
       <ol className="space-y-6 sm:space-y-8">
-        {steps.map((step) => (
-          <StepRow key={step.index} step={step} reducedMotion={reducedMotion} />
+        {steps.map((step, i) => (
+          <StepRow
+            key={step.index}
+            step={step}
+            reducedMotion={reducedMotion}
+            nodeRef={i === 0 ? firstNodeRef : i === steps.length - 1 ? lastNodeRef : undefined}
+          />
         ))}
       </ol>
     </div>
@@ -68,9 +91,11 @@ export function ScrollSteps({
 function StepRow({
   step,
   reducedMotion,
+  nodeRef,
 }: {
   step: Step;
   reducedMotion: boolean;
+  nodeRef?: React.RefObject<HTMLSpanElement | null>;
 }) {
   const ref = React.useRef<HTMLLIElement>(null);
   const active = useInView(ref, { amount: 0.6, margin: "-10% 0px -30% 0px" });
@@ -86,6 +111,7 @@ function StepRow({
     >
       <div className="flex justify-center">
         <motion.span
+          ref={nodeRef}
           className={cn(
             "relative z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full border bg-paper font-label text-[11px] font-medium transition-colors duration-300 sm:h-[38px] sm:w-[38px] sm:text-xs",
             active

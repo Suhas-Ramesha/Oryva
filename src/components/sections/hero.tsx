@@ -25,15 +25,15 @@ function SlideShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-[18rem] flex-col justify-between gap-4 rounded-3xl border border-hairline bg-paper-2 p-6 sm:min-h-[22rem] sm:p-8">
-      <div>
+    <div className="flex h-[28rem] flex-col gap-3 rounded-3xl border border-hairline bg-paper-2 p-6 sm:h-[30rem] sm:p-8">
+      <div className="shrink-0">
         <Eyebrow>{label}</Eyebrow>
-        <h2 className="mt-4 font-display text-2xl leading-tight text-ink sm:text-3xl">
+        <h2 className="mt-3 font-display text-2xl leading-tight text-ink sm:text-3xl">
           {title}
         </h2>
-        <p className="mt-3 max-w-md text-pretty leading-relaxed text-muted">{body}</p>
+        <p className="mt-2 max-w-md text-pretty leading-relaxed text-muted">{body}</p>
       </div>
-      <div className="flex flex-1 items-center justify-center py-1">{children}</div>
+      <div className="flex min-h-0 flex-1 items-center justify-center">{children}</div>
     </div>
   );
 }
