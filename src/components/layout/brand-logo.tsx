@@ -24,8 +24,8 @@ export function BrandLogo({
   return (
     <Image
       src="/oryva-logo.png"
-      width={174}
-      height={46}
+      width={764}
+      height={285}
       alt="Oryva AI"
       preload={priority}
       className={cn("h-auto", className)}
