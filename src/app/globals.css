@@ -59,7 +59,7 @@
 
 html {
   color-scheme: dark;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -67,6 +67,7 @@ body {
   color: var(--ink);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
   text-rendering: optimizeLegibility;
 }
 

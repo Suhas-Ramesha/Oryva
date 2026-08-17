@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Space_Grotesk, Fraunces } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { IntroSequence } from "@/components/layout/intro-sequence";
-import { LenisProvider } from "@/components/providers/lenis-provider";
+import { MotionProvider } from "@/components/providers/motion-provider";
 import { SOCIALS } from "@/components/ui/social-icon";
 import "./globals.css";
 
@@ -83,11 +83,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        <LenisProvider>
+        <MotionProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
-        </LenisProvider>
+        </MotionProvider>
       </body>
     </html>
   );
