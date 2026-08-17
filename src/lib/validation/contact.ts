@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const contactTopics = ["Product", "ORYVA FORGE", "Partnership", "Just saying hi"] as const;
+export const contactTopics = ["Product", "ORYVA FORGE", "Partnership", "General"] as const;
 
 export const contactSchema = z.object({
   name: z.string().trim().min(2).max(100),
