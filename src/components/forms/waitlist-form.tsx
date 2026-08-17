@@ -8,8 +8,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { waitlistSchema, type WaitlistValues } from "@/lib/validation/waitlist";
 import { submitForm } from "@/lib/forms/submit-form";
+import { cn } from "@/lib/utils";
 
-export function WaitlistForm() {
+export function WaitlistForm({ layout = "inline" }: { layout?: "inline" | "centered" }) {
   const [status, setStatus] = React.useState<"idle" | "submitting" | "success" | "error">(
     "idle"
   );
@@ -27,26 +28,64 @@ export function WaitlistForm() {
 
   if (status === "success") {
     return (
-      <div className="flex items-center justify-center gap-2 rounded-xl border border-hairline bg-brand-dim px-6 py-4 text-sm text-ink">
+      <div
+        className={cn(
+          "flex items-center justify-center gap-2 rounded-xl border border-hairline bg-brand-dim px-6 py-4 text-sm text-ink",
+          layout === "centered" && "mx-auto max-w-[360px] text-[12px]"
+        )}
+      >
         <CheckCircle2 className="h-4 w-4 text-brand-bright" aria-hidden />
         Thanks. We received your waitlist request and will notify you at launch.
       </div>
     );
   }
 
+  const centered = layout === "centered";
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="w-full max-w-md">
-      <div className="flex flex-col gap-3 sm:flex-row">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      className={cn("w-full", centered ? "max-w-[360px]" : "max-w-md")}
+    >
+      <div className={cn("flex flex-col gap-3", centered ? "items-center" : "sm:flex-row")}>
         <input type="text" tabIndex={-1} autoComplete="off" className="hidden" {...register("honeypot")} />
-        <Input placeholder="Name (optional)" {...register("name")} className="sm:flex-1" />
-        <Input
-          type="email"
-          placeholder="you@email.com"
-          {...register("email")}
-          error={!!errors.email}
-          className="sm:flex-1"
-        />
-        <Button type="submit" disabled={status === "submitting"} className="shrink-0">
+        <div
+          className={cn(
+            "flex w-full flex-col gap-3",
+            centered ? "max-w-[230px] flex-row justify-center" : "sm:flex-row"
+          )}
+        >
+          <Input
+            placeholder="Name (optional)"
+            {...register("name")}
+            className={cn(
+              centered
+                ? "h-[24px] w-[108px] rounded-[5px] border-white/20 bg-[#050608] px-3 text-[9px]"
+                : "sm:flex-1"
+            )}
+          />
+          <Input
+            type="email"
+            placeholder="you@email.com"
+            {...register("email")}
+            error={!!errors.email}
+            className={cn(
+              centered
+                ? "h-[24px] w-[108px] rounded-[5px] border-white/20 bg-[#050608] px-3 text-[9px]"
+                : "sm:flex-1"
+            )}
+          />
+        </div>
+        <Button
+          type="submit"
+          disabled={status === "submitting"}
+          className={cn(
+            "shrink-0",
+            centered &&
+              "h-8 min-w-[104px] px-5 text-[10px] shadow-[inset_0_2px_6px_rgba(255,255,255,0.42),0_10px_24px_rgba(49,145,245,0.22)]"
+          )}
+        >
           {status === "submitting" ? (
             <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
           ) : (
