@@ -34,7 +34,7 @@ export function Navbar() {
           <BrandLogo priority className="w-[92px]" />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {NAV_LINKS.map((link) => {
             const active = pathname === link.href;
             return (
@@ -43,7 +43,7 @@ export function Navbar() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "font-label text-[11px] font-medium tracking-tight transition-colors",
+                  "font-label text-[13px] font-medium tracking-tight transition-colors",
                   active ? "text-white" : "text-[#9fa8b7] hover:text-white"
                 )}
               >
@@ -56,7 +56,7 @@ export function Navbar() {
         <div className="hidden lg:flex">
           <Link
             href="/contact"
-            className="inline-flex h-[28px] min-w-[100px] items-center justify-center rounded-full bg-[#67b7ff] px-4 text-[10px] font-semibold text-black shadow-[inset_0_1px_4px_rgba(255,255,255,0.45),0_8px_20px_rgba(49,145,245,0.16)] transition hover:bg-[#80c4ff]"
+            className="inline-flex h-[30px] min-w-[112px] items-center justify-center rounded-full bg-[#67b7ff] px-5 text-[12px] font-semibold text-black shadow-[inset_0_1px_4px_rgba(255,255,255,0.45),0_8px_20px_rgba(49,145,245,0.16)] transition hover:bg-[#80c4ff]"
           >
             Get in touch
           </Link>
