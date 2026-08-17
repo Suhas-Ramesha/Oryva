@@ -31,7 +31,7 @@ export function WaitlistForm({ layout = "inline" }: { layout?: "inline" | "cente
       <div
         className={cn(
           "flex items-center justify-center gap-2 rounded-xl border border-hairline bg-brand-dim px-6 py-4 text-sm text-ink",
-          layout === "centered" && "mx-auto max-w-[360px] text-[12px]"
+          layout === "centered" && "mx-auto max-w-[480px] text-[14px]"
         )}
       >
         <CheckCircle2 className="h-4 w-4 text-brand-bright" aria-hidden />
@@ -46,14 +46,16 @@ export function WaitlistForm({ layout = "inline" }: { layout?: "inline" | "cente
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className={cn("w-full", centered ? "max-w-[360px]" : "max-w-md")}
+      className={cn("w-full", centered ? "max-w-[510px]" : "max-w-md")}
     >
       <div className={cn("flex flex-col gap-3", centered ? "items-center" : "sm:flex-row")}>
         <input type="text" tabIndex={-1} autoComplete="off" className="hidden" {...register("honeypot")} />
         <div
           className={cn(
             "flex w-full flex-col gap-3",
-            centered ? "max-w-[230px] flex-row justify-center" : "sm:flex-row"
+            centered
+              ? "max-w-[380px] items-center sm:flex-row sm:justify-center sm:gap-4"
+              : "sm:flex-row"
           )}
         >
           <Input
@@ -61,7 +63,7 @@ export function WaitlistForm({ layout = "inline" }: { layout?: "inline" | "cente
             {...register("name")}
             className={cn(
               centered
-                ? "h-[24px] w-[108px] rounded-[5px] border-white/20 bg-[#050608] px-3 text-[9px]"
+                ? "h-9 w-full max-w-[240px] rounded-[7px] border-white/20 bg-[#050608] px-4 text-[12px] sm:w-[154px]"
                 : "sm:flex-1"
             )}
           />
@@ -72,7 +74,7 @@ export function WaitlistForm({ layout = "inline" }: { layout?: "inline" | "cente
             error={!!errors.email}
             className={cn(
               centered
-                ? "h-[24px] w-[108px] rounded-[5px] border-white/20 bg-[#050608] px-3 text-[9px]"
+                ? "h-9 w-full max-w-[240px] rounded-[7px] border-white/20 bg-[#050608] px-4 text-[12px] sm:w-[154px]"
                 : "sm:flex-1"
             )}
           />
@@ -83,7 +85,7 @@ export function WaitlistForm({ layout = "inline" }: { layout?: "inline" | "cente
           className={cn(
             "shrink-0",
             centered &&
-              "h-8 min-w-[104px] px-5 text-[10px] shadow-[inset_0_2px_6px_rgba(255,255,255,0.42),0_10px_24px_rgba(49,145,245,0.22)]"
+              "h-10 min-w-[130px] px-6 text-[13px] shadow-[inset_0_2px_6px_rgba(255,255,255,0.42),0_12px_28px_rgba(49,145,245,0.24)]"
           )}
         >
           {status === "submitting" ? (

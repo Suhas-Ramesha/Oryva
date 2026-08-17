@@ -180,24 +180,26 @@ export default function OurApproachPage() {
             <Magnetic className="mt-10 inline-block" strength={0.22}>
               <Link
                 href="/product"
-                className="inline-flex h-8 min-w-[145px] items-center justify-center gap-1.5 rounded-full bg-[#67b7ff] px-5 text-[10px] font-semibold tracking-tight text-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.42),0_10px_24px_rgba(49,145,245,0.22)] transition hover:bg-[#80c4ff]"
+                className="inline-flex h-10 min-w-[184px] items-center justify-center gap-2 rounded-full bg-[#67b7ff] px-6 text-[12px] font-semibold tracking-tight text-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.42),0_12px_28px_rgba(49,145,245,0.24)] transition hover:bg-[#80c4ff]"
               >
                 See what we&apos;re building
-                <ArrowRight className="h-3 w-3" aria-hidden />
+                <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </Magnetic>
           </Reveal>
 
-          <div id="approach-waitlist" className="mt-[58px] scroll-mt-20">
+          <div id="approach-waitlist" className="mt-[72px] scroll-mt-20">
             <Reveal>
-              <BlueLabel centered>Join the waitlist</BlueLabel>
+              <p className="font-label text-[22px] font-medium tracking-tight text-[#4eb0ff]">
+                Join the waitlist
+              </p>
             </Reveal>
             <Reveal delay={0.06}>
-              <h2 className="mx-auto mt-7 max-w-[640px] font-display text-[28px] font-normal leading-tight text-white">
+              <h2 className="mx-auto mt-9 max-w-[820px] font-display text-[32px] font-normal leading-[1.12] text-white sm:text-[42px]">
                 Early access. Real input. You help shape what comes next.
               </h2>
             </Reveal>
-            <Reveal delay={0.12} className="mt-6 flex justify-center">
+            <Reveal delay={0.12} className="mt-9 flex justify-center">
               <WaitlistForm layout="centered" />
             </Reveal>
           </div>
