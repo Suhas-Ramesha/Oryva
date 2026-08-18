@@ -5,9 +5,6 @@ import {
   motion,
   useInView,
   useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -26,61 +23,16 @@ export function ScrollSteps({
   className?: string;
 }) {
   const reducedMotion = useReducedMotion() ?? false;
-  const ref = React.useRef<HTMLDivElement>(null);
-  const firstNodeRef = React.useRef<HTMLSpanElement>(null);
-  const lastNodeRef = React.useRef<HTMLSpanElement>(null);
-  const [railStyle, setRailStyle] = React.useState({ top: 15, height: 0 });
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 65%", "end 75%"],
-  });
-  const fill = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 26,
-    restDelta: 0.001,
-  });
-  const scaleY = useTransform(fill, [0, 1], [0, 1]);
-
-  React.useEffect(() => {
-    const container = ref.current;
-    const firstNode = firstNodeRef.current;
-    const lastNode = lastNodeRef.current;
-    if (!container || !firstNode || !lastNode) return;
-    const measure = () => {
-      const containerRect = container.getBoundingClientRect();
-      const firstRect = firstNode.getBoundingClientRect();
-      const lastRect = lastNode.getBoundingClientRect();
-      const firstCenter = firstRect.top + firstRect.height / 2 - containerRect.top;
-      const lastCenter = lastRect.top + lastRect.height / 2 - containerRect.top;
-      setRailStyle({ top: firstCenter, height: lastCenter - firstCenter });
-    };
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, [steps.length]);
 
   return (
-    <div ref={ref} className={cn("relative", className)}>
-      {/* Rail */}
-      <div
-        aria-hidden
-        className="absolute left-[17px] w-px bg-hairline sm:left-[21px]"
-        style={{ top: railStyle.top, height: railStyle.height }}
-      >
-        <motion.div
-          className="absolute inset-x-0 top-0 h-full origin-top rounded-full bg-gradient-to-b from-brand-bright to-brand"
-          style={{ scaleY: reducedMotion ? 1 : scaleY }}
-        />
-      </div>
-
-      <ol className="space-y-6 sm:space-y-8">
+    <div className={cn("relative", className)}>
+      <ol className="space-y-7 sm:space-y-10">
         {steps.map((step, i) => (
           <StepRow
             key={step.index}
             step={step}
             reducedMotion={reducedMotion}
-            nodeRef={i === 0 ? firstNodeRef : i === steps.length - 1 ? lastNodeRef : undefined}
+            delay={i * 0.08}
           />
         ))}
       </ol>
@@ -91,11 +43,11 @@ export function ScrollSteps({
 function StepRow({
   step,
   reducedMotion,
-  nodeRef,
+  delay,
 }: {
   step: Step;
   reducedMotion: boolean;
-  nodeRef?: React.RefObject<HTMLSpanElement | null>;
+  delay: number;
 }) {
   const ref = React.useRef<HTMLLIElement>(null);
   const active = useInView(ref, { amount: 0.6, margin: "-10% 0px -30% 0px" });
@@ -103,43 +55,32 @@ function StepRow({
   return (
     <motion.li
       ref={ref}
-      className="relative grid grid-cols-[2.5rem_1fr] gap-4 sm:grid-cols-[3rem_1fr] sm:gap-6"
-      initial={reducedMotion ? false : { opacity: 0, y: 26, scale: 0.985 }}
+      className={cn(
+        "relative overflow-hidden rounded-[1.6rem] border bg-[#050608] p-7 transition duration-500 sm:p-14",
+        active
+          ? "border-[#67b7ff] shadow-[0_22px_70px_-52px_rgba(80,170,255,0.9)]"
+          : "border-[#278de7]"
+      )}
+      initial={reducedMotion ? false : { opacity: 0, y: 34, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.5, margin: "-6% 0px -12% 0px" }}
-      transition={{ duration: reducedMotion ? 0 : 0.5, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: reducedMotion ? 0 : 0.58, delay, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div className="flex justify-center">
-        <motion.span
-          ref={nodeRef}
-          className={cn(
-            "relative z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full border bg-paper font-label text-[11px] font-medium transition-colors duration-300 sm:h-[38px] sm:w-[38px] sm:text-xs",
-            active
-              ? "border-brand text-brand-bright shadow-[0_0_0_4px_var(--brand-dim)]"
-              : "border-hairline-strong text-muted"
-          )}
-          initial={reducedMotion ? false : { scale: 0.5 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ type: "spring", stiffness: 340, damping: 18 }}
-        >
-          {step.index}
-        </motion.span>
-      </div>
-
-      <div
-        className={cn(
-          "rounded-2xl border bg-paper p-5 transition-colors duration-300 sm:p-6",
-          active ? "border-brand/40" : "border-hairline"
-        )}
-      >
-        <h3 className="font-display text-xl leading-tight text-ink sm:text-2xl">
-          {step.title}
-        </h3>
-        <p className="mt-2 max-w-2xl text-pretty leading-relaxed text-muted">
-          {step.body}
-        </p>
-      </div>
+      <motion.div
+        aria-hidden
+        className="absolute inset-y-0 left-0 w-1 bg-[#67b7ff]"
+        initial={reducedMotion ? false : { scaleY: 0 }}
+        whileInView={{ scaleY: 1 }}
+        viewport={{ once: true, amount: 0.65 }}
+        transition={{ duration: reducedMotion ? 0 : 0.52, delay: delay + 0.08, ease: [0.16, 1, 0.3, 1] }}
+        style={{ transformOrigin: "top" }}
+      />
+      <h3 className="font-display text-4xl leading-tight tracking-[-0.05em] text-white sm:text-6xl">
+        {step.title}
+      </h3>
+      <p className="mt-8 max-w-3xl text-pretty text-base font-medium leading-snug text-[#b8bdc7] sm:text-2xl">
+        {step.body}
+      </p>
     </motion.li>
   );
 }
