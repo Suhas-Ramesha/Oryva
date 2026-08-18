@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Space_Grotesk, Fraunces } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Space_Grotesk,
+  Fraunces,
+  Instrument_Sans,
+  Instrument_Serif,
+} from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { IntroSequence } from "@/components/layout/intro-sequence";
@@ -42,6 +49,19 @@ const fraunces = Fraunces({
   style: ["normal", "italic"],
 });
 
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.oryva.com"),
   title: {
@@ -74,7 +94,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${fraunces.variable} ${instrumentSans.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <IntroSequence />
