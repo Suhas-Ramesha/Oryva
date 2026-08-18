@@ -36,10 +36,10 @@ const TRACKS: {
 
 export function ForgeInteractive() {
   return (
-    <div className="mt-14 grid gap-8 lg:grid-cols-3">
+    <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-3">
       {TRACKS.map(({ title, track, description, cta }, i) => (
         <Reveal key={track} delay={i * 0.08} className="h-full">
-          <article className="group relative flex min-h-[520px] flex-col overflow-hidden rounded-[1.75rem] border border-[#278de7] bg-[radial-gradient(circle_at_50%_-15%,rgba(36,136,218,0.18),transparent_38%),#06090d] p-8 transition duration-500 hover:-translate-y-2 hover:border-[#67b7ff] hover:shadow-[0_30px_70px_-42px_rgba(80,170,255,0.95)] sm:p-10">
+          <article className="group relative flex h-full min-h-[480px] flex-col overflow-hidden rounded-[1.75rem] border border-[#278de7] bg-[radial-gradient(circle_at_50%_-15%,rgba(36,136,218,0.18),transparent_38%),#06090d] p-8 transition duration-500 hover:-translate-y-2 hover:border-[#67b7ff] hover:shadow-[0_30px_70px_-42px_rgba(80,170,255,0.95)] sm:p-10 lg:min-h-[500px]">
             <span className="font-label text-3xl font-semibold text-[#4fa8ff]">
               {String(i + 1).padStart(2, "0")}
             </span>
@@ -47,16 +47,16 @@ export function ForgeInteractive() {
               aria-hidden
               className="absolute right-8 top-8 h-9 w-9 rounded-br-[100%] bg-[#3e7bfa]/60 transition duration-500 group-hover:scale-125 group-hover:bg-[#67b7ff]/80"
             />
-            <h3 className="mt-16 font-display text-5xl leading-none tracking-[-0.05em] text-white sm:text-6xl">
+            <h3 className="mt-14 font-display text-5xl leading-none tracking-[-0.05em] text-white sm:text-6xl lg:text-[3.45rem]">
               {title}
             </h3>
-            <p className="mt-14 flex-1 text-pretty text-xl font-medium leading-snug text-[#aaaeb8] sm:text-2xl lg:text-[1.35rem]">
+            <p className="mt-10 flex-1 text-pretty text-xl font-medium leading-snug text-[#aaaeb8] sm:text-2xl lg:text-[1.3rem]">
               {description}
             </p>
             <Button
               variant="outline"
               asChild
-              className="mt-12 w-fit min-w-[220px] border-white/25 text-base font-bold hover:border-[#67b7ff]"
+              className="mt-10 w-fit min-w-[220px] border-white/25 text-base font-bold hover:border-[#67b7ff]"
             >
               <Link href={`/forge/apply?track=${getTrackSlug(track)}`}>{cta}</Link>
             </Button>

@@ -38,8 +38,8 @@ const STEPS = [
 export default function ForgePage() {
   return (
     <>
-      <section className="forge-hero relative min-h-[760px] overflow-hidden bg-[#050608] sm:min-h-[820px]">
-        <Container className="relative z-20 flex min-h-[760px] flex-col justify-center pt-20 pb-20 sm:min-h-[820px] lg:pt-24">
+      <section className="forge-hero relative min-h-[690px] overflow-hidden bg-[#050608] sm:min-h-[730px]">
+        <Container className="relative z-20 flex min-h-[690px] flex-col justify-center pt-20 pb-16 sm:min-h-[730px] lg:pt-20">
           <div className="relative z-[100] isolate">
             <div className="mx-auto mb-16 hidden text-center lg:block">
               <p className="font-label text-3xl font-medium tracking-tight text-[#4fa8ff]">
@@ -60,7 +60,7 @@ export default function ForgePage() {
                 <Link href="/forge/apply">Apply to FORGE</Link>
               </Button>
             </div>
-            <p className="mx-auto mt-14 max-w-5xl text-pretty text-left text-xl font-medium leading-snug text-[#b8bdc7] sm:text-center sm:text-2xl">
+            <p className="mt-14 max-w-3xl text-pretty text-left text-xl font-medium leading-snug text-[#b8bdc7] sm:text-2xl lg:max-w-4xl">
               FORGE is where ideas stop being conversations and start becoming real
               things. A hands-on program for builders who learn best by doing the
               work, not watching someone else talk about it.
@@ -72,14 +72,14 @@ export default function ForgePage() {
       <section className="bg-[#050608] py-12 sm:py-20">
         <Container>
           <Reveal>
-            <div className="rounded-[2rem] bg-[#101720] px-6 py-16 text-center sm:rounded-[2.5rem] sm:px-16 sm:py-20">
+            <div className="rounded-[2rem] bg-[#101720] px-6 py-12 text-center sm:rounded-[2.5rem] sm:px-12 sm:py-14 lg:px-16">
               <p className="font-label text-2xl font-medium tracking-tight text-[#4fa8ff]">
                 Built for
               </p>
-              <h2 className="mx-auto mt-7 max-w-5xl font-display text-4xl leading-tight tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
+              <h2 className="mx-auto mt-7 max-w-5xl font-display text-3xl leading-tight tracking-[-0.035em] text-white sm:text-5xl lg:whitespace-nowrap lg:text-[3.1rem]">
                 You don&apos;t need a perfect idea. You need a place to start.
               </h2>
-              <p className="mx-auto mt-12 max-w-5xl text-pretty text-lg font-medium leading-snug text-[#b8bdc7] sm:text-2xl">
+              <p className="mx-auto mt-10 max-w-5xl text-pretty text-lg font-medium leading-snug text-[#b8bdc7] sm:text-xl lg:text-2xl">
                 FORGE is for students, early-career makers, aspiring founders,
                 designers, developers, and anyone who has an idea sitting in their
                 head but nowhere to test it. You might have a project that&apos;s stuck.
@@ -97,7 +97,7 @@ export default function ForgePage() {
             <p className="font-label text-3xl font-medium tracking-tight text-[#4fa8ff]">
               Three ways
             </p>
-            <h2 className="mt-7 max-w-3xl font-display text-4xl leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+            <h2 className="mt-7 max-w-none font-display text-4xl leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:whitespace-nowrap lg:text-[3.25rem]">
               Pick the track that matches where you are
             </h2>
           </Reveal>
