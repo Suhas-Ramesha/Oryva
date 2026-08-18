@@ -56,7 +56,7 @@ function StepRow({
     <motion.li
       ref={ref}
       className={cn(
-        "relative overflow-hidden rounded-[1.6rem] border bg-[#050608] p-7 transition duration-500 sm:p-14",
+        "relative overflow-hidden rounded-[1.45rem] border bg-[#050608] p-6 transition duration-500 sm:p-10",
         active
           ? "border-[#67b7ff] shadow-[0_22px_70px_-52px_rgba(80,170,255,0.9)]"
           : "border-[#278de7]"
@@ -75,10 +75,10 @@ function StepRow({
         transition={{ duration: reducedMotion ? 0 : 0.52, delay: delay + 0.08, ease: [0.16, 1, 0.3, 1] }}
         style={{ transformOrigin: "top" }}
       />
-      <h3 className="font-display text-4xl leading-tight tracking-[-0.05em] text-white sm:text-6xl">
+      <h3 className="font-display text-3xl leading-tight tracking-[-0.05em] text-white sm:text-5xl">
         {step.title}
       </h3>
-      <p className="mt-8 max-w-3xl text-pretty text-base font-medium leading-snug text-[#b8bdc7] sm:text-2xl">
+      <p className="mt-6 max-w-3xl text-pretty text-sm font-medium leading-relaxed text-[#b8bdc7] sm:text-lg">
         {step.body}
       </p>
     </motion.li>
