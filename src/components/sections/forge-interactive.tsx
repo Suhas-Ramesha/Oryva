@@ -36,27 +36,27 @@ const TRACKS: {
 
 export function ForgeInteractive() {
   return (
-    <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-3">
+    <div className="mt-12 grid items-stretch gap-7 lg:grid-cols-3">
       {TRACKS.map(({ title, track, description, cta }, i) => (
         <Reveal key={track} delay={i * 0.08} className="h-full">
-          <article className="group relative flex h-full min-h-[480px] flex-col overflow-hidden rounded-[1.75rem] border border-[#278de7] bg-[radial-gradient(circle_at_50%_-15%,rgba(36,136,218,0.18),transparent_38%),#06090d] p-8 transition duration-500 hover:-translate-y-2 hover:border-[#67b7ff] hover:shadow-[0_30px_70px_-42px_rgba(80,170,255,0.95)] sm:p-10 lg:min-h-[500px]">
-            <span className="font-label text-3xl font-semibold text-[#4fa8ff]">
+          <article className="group relative flex h-full min-h-[390px] flex-col overflow-hidden rounded-[1.6rem] border border-[#278de7] bg-[radial-gradient(circle_at_50%_-15%,rgba(36,136,218,0.18),transparent_38%),#06090d] p-7 transition duration-500 hover:-translate-y-1.5 hover:border-[#67b7ff] hover:shadow-[0_26px_60px_-42px_rgba(80,170,255,0.95)] sm:p-8 lg:min-h-[410px]">
+            <span className="font-label text-2xl font-semibold text-[#4fa8ff]">
               {String(i + 1).padStart(2, "0")}
             </span>
             <span
               aria-hidden
-              className="absolute right-8 top-8 h-9 w-9 rounded-br-[100%] bg-[#3e7bfa]/60 transition duration-500 group-hover:scale-125 group-hover:bg-[#67b7ff]/80"
+              className="absolute right-7 top-7 h-8 w-8 rounded-br-[100%] bg-[#3e7bfa]/60 transition duration-500 group-hover:scale-125 group-hover:bg-[#67b7ff]/80"
             />
-            <h3 className="mt-14 font-display text-5xl leading-none tracking-[-0.05em] text-white sm:text-6xl lg:text-[3.45rem]">
+            <h3 className="mt-10 font-display text-4xl leading-none tracking-[-0.05em] text-white sm:text-5xl lg:text-[2.8rem]">
               {title}
             </h3>
-            <p className="mt-10 flex-1 text-pretty text-xl font-medium leading-snug text-[#aaaeb8] sm:text-2xl lg:text-[1.3rem]">
+            <p className="mt-8 flex-1 text-pretty text-base font-medium leading-relaxed text-[#aaaeb8] sm:text-lg lg:text-[1.05rem]">
               {description}
             </p>
             <Button
               variant="outline"
               asChild
-              className="mt-10 w-fit min-w-[220px] border-white/25 text-base font-bold hover:border-[#67b7ff]"
+              className="mt-8 w-fit min-w-[190px] border-white/25 text-sm font-bold hover:border-[#67b7ff]"
             >
               <Link href={`/forge/apply?track=${getTrackSlug(track)}`}>{cta}</Link>
             </Button>
